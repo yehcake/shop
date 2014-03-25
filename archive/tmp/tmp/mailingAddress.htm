@@ -1,0 +1,456 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noarchive, noodp, noimageindex" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>地址查詢 Address Lookup</title>
+<link rel="stylesheet" href="//code.jquery.com/mobile/1.4.0/jquery.mobile-1.4.0.min.css" />
+<link rel="stylesheet" href="/css/yehcake.css" />
+<script src="//code.jquery.com/jquery-1.10.2.min.js"></script>
+<script src="//code.jquery.com/mobile/1.4.0/jquery.mobile-1.4.0.min.js"></script>
+<script src="/js/data.js"></script>
+<script>
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-35314774-1']);
+    _gaq.push(['_setDomainName', 'yehcake.com']);
+    _gaq.push(['_setAllowLinker', true]);
+    _gaq.push(['_trackPageview']);
+
+    (function () {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+
+    $(document).on("pageinit", "#addressPage", function (event) {
+        $(document).on("click", "#save", function () {
+            var count = $("#autocomplete>li :not(.ui-screen-hidden)").length;
+            alert(count);
+        });
+    });
+
+    $(document).on("click tap", "#autocomplete li", function () {
+        var selectedItem = $(this).html();
+        $("#autocomplete").prev("form").find("input").val(selectedItem);
+        $("#autocomplete").children().addClass("ui-screen-hidden");
+    });
+</script>
+</head>
+<body>
+<div id="addressPage" data-role="page">
+  <div role="main" class="ui-content">
+    <div class="yc-rwd-2">
+      <div class="ui-block-a">
+        <label for="autocomplete"> <span lang="zh-tw">郵遞區號</span> <span lang="en-us">Postal Code</span> </label>
+        <ul id="autocomplete" data-role="listview" data-inset="true" data-filter="true" data-filter-reveal="true" data-filter-placeholder="100">
+          <li data-filtertext="台北市 臺北市 中正區 100 Taipei">100 臺北市 中正區</li>
+          <li data-filtertext="台北市 臺北市 大同區 103 Taipei">103 臺北市 大同區</li>
+          <li data-filtertext="台北市 臺北市 中山區 104 Taipei">104 臺北市 中山區</li>
+          <li data-filtertext="台北市 臺北市 松山區 105 Taipei">105 臺北市 松山區</li>
+          <li data-filtertext="台北市 臺北市 大安區 106 Taipei">106 臺北市 大安區</li>
+          <li data-filtertext="台北市 臺北市 萬華區 108 Taipei">108 臺北市 萬華區</li>
+          <li data-filtertext="台北市 臺北市 信義區 110 Taipei">110 臺北市 信義區</li>
+          <li data-filtertext="台北市 臺北市 士林區 111 Taipei">111 臺北市 士林區</li>
+          <li data-filtertext="台北市 臺北市 北投區 112 Taipei">112 臺北市 北投區</li>
+          <li data-filtertext="台北市 臺北市 內湖區 114 Taipei">114 臺北市 內湖區</li>
+          <li data-filtertext="台北市 臺北市 南港區 115 Taipei">115 臺北市 南港區</li>
+          <li data-filtertext="台北市 臺北市 文山區 116 Taipei">116 臺北市 文山區</li>
+          <li data-filtertext="基隆市 仁愛區 200 Keelung">200 基隆市 仁愛區</li>
+          <li data-filtertext="基隆市 信義區 201 Keelung">201 基隆市 信義區</li>
+          <li data-filtertext="基隆市 中正區 202 Keelung">202 基隆市 中正區</li>
+          <li data-filtertext="基隆市 中山區 203 Keelung">203 基隆市 中山區</li>
+          <li data-filtertext="基隆市 安樂區 204 Keelung">204 基隆市 安樂區</li>
+          <li data-filtertext="基隆市 暖暖區 205 Keelung">205 基隆市 暖暖區</li>
+          <li data-filtertext="基隆市 七堵區 206 Keelung">206 基隆市 七堵區</li>
+          <li data-filtertext="新北市 萬里區 207 New Taipei City">207 新北市 萬里區</li>
+          <li data-filtertext="新北市 金山區 208 New Taipei City">208 新北市 金山區</li>
+          <li data-filtertext="連江縣 南竿 209 Lianjiang County">209 連江縣 南竿</li>
+          <li data-filtertext="連江縣 北竿 210 Lianjiang County">210 連江縣 北竿</li>
+          <li data-filtertext="連江縣 莒光 211 Lianjiang County">211 連江縣 莒光</li>
+          <li data-filtertext="連江縣 東引 212 Lianjiang County">212 連江縣 東引</li>
+          <li data-filtertext="新北市 板橋區 220 New Taipei City">220 新北市 板橋區</li>
+          <li data-filtertext="新北市 汐止區 221 New Taipei City">221 新北市 汐止區</li>
+          <li data-filtertext="新北市 深坑區 222 New Taipei City">222 新北市 深坑區</li>
+          <li data-filtertext="新北市 石碇區 223 New Taipei City">223 新北市 石碇區</li>
+          <li data-filtertext="新北市 瑞芳區 224 New Taipei City">224 新北市 瑞芳區</li>
+          <li data-filtertext="新北市 平溪區 226 New Taipei City">226 新北市 平溪區</li>
+          <li data-filtertext="新北市 雙溪區 227 New Taipei City">227 新北市 雙溪區</li>
+          <li data-filtertext="新北市 貢寮區 228 New Taipei City">228 新北市 貢寮區</li>
+          <li data-filtertext="新北市 新店區 231 New Taipei City">231 新北市 新店區</li>
+          <li data-filtertext="新北市 坪林區 232 New Taipei City">232 新北市 坪林區</li>
+          <li data-filtertext="新北市 烏來區 233 New Taipei City">233 新北市 烏來區</li>
+          <li data-filtertext="新北市 永和區 234 New Taipei City">234 新北市 永和區</li>
+          <li data-filtertext="新北市 中和區 235 New Taipei City">235 新北市 中和區</li>
+          <li data-filtertext="新北市 土城區 236 New Taipei City">236 新北市 土城區</li>
+          <li data-filtertext="新北市 三峽區 237 New Taipei City">237 新北市 三峽區</li>
+          <li data-filtertext="新北市 樹林區 238 New Taipei City">238 新北市 樹林區</li>
+          <li data-filtertext="新北市 鶯歌區 239 New Taipei City">239 新北市 鶯歌區</li>
+          <li data-filtertext="新北市 三重區 241 New Taipei City">241 新北市 三重區</li>
+          <li data-filtertext="新北市 新莊區 242 New Taipei City">242 新北市 新莊區</li>
+          <li data-filtertext="新北市 泰山區 243 New Taipei City">243 新北市 泰山區</li>
+          <li data-filtertext="新北市 林口區 244 New Taipei City">244 新北市 林口區</li>
+          <li data-filtertext="新北市 蘆洲區 247 New Taipei City">247 新北市 蘆洲區</li>
+          <li data-filtertext="新北市 五股區 248 New Taipei City">248 新北市 五股區</li>
+          <li data-filtertext="新北市 八里區 249 New Taipei City">249 新北市 八里區</li>
+          <li data-filtertext="新北市 淡水區 251 New Taipei City">251 新北市 淡水區</li>
+          <li data-filtertext="新北市 三芝區 252 New Taipei City">252 新北市 三芝區</li>
+          <li data-filtertext="新北市 石門區 253 New Taipei City">253 新北市 石門區</li>
+          <li data-filtertext="宜蘭縣 宜蘭 260 Yilan County">260 宜蘭縣 宜蘭</li>
+          <li data-filtertext="宜蘭縣 頭城 261 Yilan County">261 宜蘭縣 頭城</li>
+          <li data-filtertext="宜蘭縣 礁溪 262 Yilan County">262 宜蘭縣 礁溪</li>
+          <li data-filtertext="宜蘭縣 壯圍 263 Yilan County">263 宜蘭縣 壯圍</li>
+          <li data-filtertext="宜蘭縣 員山 264 Yilan County">264 宜蘭縣 員山</li>
+          <li data-filtertext="宜蘭縣 羅東 265 Yilan County">265 宜蘭縣 羅東</li>
+          <li data-filtertext="宜蘭縣 三星 266 Yilan County">266 宜蘭縣 三星</li>
+          <li data-filtertext="宜蘭縣 大同 267 Yilan County">267 宜蘭縣 大同</li>
+          <li data-filtertext="宜蘭縣 五結 268 Yilan County">268 宜蘭縣 五結</li>
+          <li data-filtertext="宜蘭縣 冬山 269 Yilan County">269 宜蘭縣 冬山</li>
+          <li data-filtertext="宜蘭縣 蘇澳 270 Yilan County">270 宜蘭縣 蘇澳</li>
+          <li data-filtertext="宜蘭縣 南澳 272 Yilan County">272 宜蘭縣 南澳</li>
+          <li data-filtertext="宜蘭縣 釣魚台列嶼 290 Yilan County">290 宜蘭縣 釣魚台列嶼</li>
+          <li data-filtertext="新竹市  300 Hsinchu">300 新竹市 </li>
+          <li data-filtertext="新竹縣 新竹縣 300 Hsinchu County">300 新竹縣 新竹縣</li>
+          <li data-filtertext="新竹縣 竹北 302 Hsinchu County">302 新竹縣 竹北</li>
+          <li data-filtertext="新竹縣 湖口 303 Hsinchu County">303 新竹縣 湖口</li>
+          <li data-filtertext="新竹縣 新豐 304 Hsinchu County">304 新竹縣 新豐</li>
+          <li data-filtertext="新竹縣 新埔 305 Hsinchu County">305 新竹縣 新埔</li>
+          <li data-filtertext="新竹縣 關西 306 Hsinchu County">306 新竹縣 關西</li>
+          <li data-filtertext="新竹縣 芎林 307 Hsinchu County">307 新竹縣 芎林</li>
+          <li data-filtertext="新竹縣 寶山 308 Hsinchu County">308 新竹縣 寶山</li>
+          <li data-filtertext="新竹縣 竹東 310 Hsinchu County">310 新竹縣 竹東</li>
+          <li data-filtertext="新竹縣 五峰 311 Hsinchu County">311 新竹縣 五峰</li>
+          <li data-filtertext="新竹縣 橫山 312 Hsinchu County">312 新竹縣 橫山</li>
+          <li data-filtertext="新竹縣 尖石 313 Hsinchu County">313 新竹縣 尖石</li>
+          <li data-filtertext="新竹縣 北埔 314 Hsinchu County">314 新竹縣 北埔</li>
+          <li data-filtertext="新竹縣 峨眉 315 Hsinchu County">315 新竹縣 峨眉</li>
+          <li data-filtertext="桃園縣 中壢 320 Taoyuan County">320 桃園縣 中壢</li>
+          <li data-filtertext="桃園縣 平鎮 324 Taoyuan County">324 桃園縣 平鎮</li>
+          <li data-filtertext="桃園縣 龍潭 325 Taoyuan County">325 桃園縣 龍潭</li>
+          <li data-filtertext="桃園縣 楊梅 326 Taoyuan County">326 桃園縣 楊梅</li>
+          <li data-filtertext="桃園縣 新屋 327 Taoyuan County">327 桃園縣 新屋</li>
+          <li data-filtertext="桃園縣 觀音 328 Taoyuan County">328 桃園縣 觀音</li>
+          <li data-filtertext="桃園縣 桃園 330 Taoyuan County">330 桃園縣 桃園</li>
+          <li data-filtertext="桃園縣 龜山 333 Taoyuan County">333 桃園縣 龜山</li>
+          <li data-filtertext="桃園縣 八德 334 Taoyuan County">334 桃園縣 八德</li>
+          <li data-filtertext="桃園縣 大溪 335 Taoyuan County">335 桃園縣 大溪</li>
+          <li data-filtertext="桃園縣 復興 336 Taoyuan County">336 桃園縣 復興</li>
+          <li data-filtertext="桃園縣 大園 337 Taoyuan County">337 桃園縣 大園</li>
+          <li data-filtertext="桃園縣 蘆竹 338 Taoyuan County">338 桃園縣 蘆竹</li>
+          <li data-filtertext="苗栗縣 竹南 350 Miaoli County">350 苗栗縣 竹南</li>
+          <li data-filtertext="苗栗縣 頭份 351 Miaoli County">351 苗栗縣 頭份</li>
+          <li data-filtertext="苗栗縣 三灣 352 Miaoli County">352 苗栗縣 三灣</li>
+          <li data-filtertext="苗栗縣 南庄 353 Miaoli County">353 苗栗縣 南庄</li>
+          <li data-filtertext="苗栗縣 獅潭 354 Miaoli County">354 苗栗縣 獅潭</li>
+          <li data-filtertext="苗栗縣 後龍 356 Miaoli County">356 苗栗縣 後龍</li>
+          <li data-filtertext="苗栗縣 通霄 357 Miaoli County">357 苗栗縣 通霄</li>
+          <li data-filtertext="苗栗縣 苑裡 358 Miaoli County">358 苗栗縣 苑裡</li>
+          <li data-filtertext="苗栗縣 苗栗 360 Miaoli County">360 苗栗縣 苗栗</li>
+          <li data-filtertext="苗栗縣 造橋 361 Miaoli County">361 苗栗縣 造橋</li>
+          <li data-filtertext="苗栗縣 頭屋 362 Miaoli County">362 苗栗縣 頭屋</li>
+          <li data-filtertext="苗栗縣 公館 363 Miaoli County">363 苗栗縣 公館</li>
+          <li data-filtertext="苗栗縣 大湖 364 Miaoli County">364 苗栗縣 大湖</li>
+          <li data-filtertext="苗栗縣 泰安 365 Miaoli County">365 苗栗縣 泰安</li>
+          <li data-filtertext="苗栗縣 銅鑼 366 Miaoli County">366 苗栗縣 銅鑼</li>
+          <li data-filtertext="苗栗縣 三義 367 Miaoli County">367 苗栗縣 三義</li>
+          <li data-filtertext="苗栗縣 西湖 368 Miaoli County">368 苗栗縣 西湖</li>
+          <li data-filtertext="苗栗縣 卓蘭 369 Miaoli County">369 苗栗縣 卓蘭</li>
+          <li data-filtertext="台中市 臺中市 中區 400 Taichung City">400 臺中市 中區</li>
+          <li data-filtertext="台中市 臺中市 東區 401 Taichung City">401 臺中市 東區</li>
+          <li data-filtertext="台中市 臺中市 南區 402 Taichung City">402 臺中市 南區</li>
+          <li data-filtertext="台中市 臺中市 西區 403 Taichung City">403 臺中市 西區</li>
+          <li data-filtertext="台中市 臺中市 北區 404 Taichung City">404 臺中市 北區</li>
+          <li data-filtertext="台中市 臺中市 北屯區 406 Taichung City">406 臺中市 北屯區</li>
+          <li data-filtertext="台中市 臺中市 西屯區 407 Taichung City">407 臺中市 西屯區</li>
+          <li data-filtertext="台中市 臺中市 南屯區 408 Taichung City">408 臺中市 南屯區</li>
+          <li data-filtertext="台中市 臺中市 太平區 411 Taichung City">411 臺中市 太平區</li>
+          <li data-filtertext="台中市 臺中市 大里區 412 Taichung City">412 臺中市 大里區</li>
+          <li data-filtertext="台中市 臺中市 霧峰區 413 Taichung City">413 臺中市 霧峰區</li>
+          <li data-filtertext="台中市 臺中市 烏日區 414 Taichung City">414 臺中市 烏日區</li>
+          <li data-filtertext="台中市 臺中市 豐原區 420 Taichung City">420 臺中市 豐原區</li>
+          <li data-filtertext="台中市 臺中市 后里區 421 Taichung City">421 臺中市 后里區</li>
+          <li data-filtertext="台中市 臺中市 石岡區 422 Taichung City">422 臺中市 石岡區</li>
+          <li data-filtertext="台中市 臺中市 東勢區 423 Taichung City">423 臺中市 東勢區</li>
+          <li data-filtertext="台中市 臺中市 和平區 424 Taichung City">424 臺中市 和平區</li>
+          <li data-filtertext="台中市 臺中市 新社區 426 Taichung City">426 臺中市 新社區</li>
+          <li data-filtertext="台中市 臺中市 潭子區 427 Taichung City">427 臺中市 潭子區</li>
+          <li data-filtertext="台中市 臺中市 大雅區 428 Taichung City">428 臺中市 大雅區</li>
+          <li data-filtertext="台中市 臺中市 神岡區 429 Taichung City">429 臺中市 神岡區</li>
+          <li data-filtertext="台中市 臺中市 大肚區 432 Taichung City">432 臺中市 大肚區</li>
+          <li data-filtertext="台中市 臺中市 沙鹿區 433 Taichung City">433 臺中市 沙鹿區</li>
+          <li data-filtertext="台中市 臺中市 龍井區 434 Taichung City">434 臺中市 龍井區</li>
+          <li data-filtertext="台中市 臺中市 梧棲區 435 Taichung City">435 臺中市 梧棲區</li>
+          <li data-filtertext="台中市 臺中市 清水區 436 Taichung City">436 臺中市 清水區</li>
+          <li data-filtertext="台中市 臺中市 大甲區 437 Taichung City">437 臺中市 大甲區</li>
+          <li data-filtertext="台中市 臺中市 外埔區 438 Taichung City">438 臺中市 外埔區</li>
+          <li data-filtertext="台中市 臺中市 大安區 439 Taichung City">439 臺中市 大安區</li>
+          <li data-filtertext="彰化縣 彰化 500 Changhua County">500 彰化縣 彰化</li>
+          <li data-filtertext="彰化縣 芬園 502 Changhua County">502 彰化縣 芬園</li>
+          <li data-filtertext="彰化縣 花壇 503 Changhua County">503 彰化縣 花壇</li>
+          <li data-filtertext="彰化縣 秀水 504 Changhua County">504 彰化縣 秀水</li>
+          <li data-filtertext="彰化縣 鹿港 505 Changhua County">505 彰化縣 鹿港</li>
+          <li data-filtertext="彰化縣 福興 506 Changhua County">506 彰化縣 福興</li>
+          <li data-filtertext="彰化縣 線西 507 Changhua County">507 彰化縣 線西</li>
+          <li data-filtertext="彰化縣 和美 508 Changhua County">508 彰化縣 和美</li>
+          <li data-filtertext="彰化縣 伸港 509 Changhua County">509 彰化縣 伸港</li>
+          <li data-filtertext="彰化縣 員林 510 Changhua County">510 彰化縣 員林</li>
+          <li data-filtertext="彰化縣 社頭 511 Changhua County">511 彰化縣 社頭</li>
+          <li data-filtertext="彰化縣 永靖 512 Changhua County">512 彰化縣 永靖</li>
+          <li data-filtertext="彰化縣 埔心 513 Changhua County">513 彰化縣 埔心</li>
+          <li data-filtertext="彰化縣 溪湖 514 Changhua County">514 彰化縣 溪湖</li>
+          <li data-filtertext="彰化縣 大村 515 Changhua County">515 彰化縣 大村</li>
+          <li data-filtertext="彰化縣 埔鹽 516 Changhua County">516 彰化縣 埔鹽</li>
+          <li data-filtertext="彰化縣 田中 520 Changhua County">520 彰化縣 田中</li>
+          <li data-filtertext="彰化縣 北斗 521 Changhua County">521 彰化縣 北斗</li>
+          <li data-filtertext="彰化縣 田尾 522 Changhua County">522 彰化縣 田尾</li>
+          <li data-filtertext="彰化縣 埤頭 523 Changhua County">523 彰化縣 埤頭</li>
+          <li data-filtertext="彰化縣 溪州 524 Changhua County">524 彰化縣 溪州</li>
+          <li data-filtertext="彰化縣 竹塘 525 Changhua County">525 彰化縣 竹塘</li>
+          <li data-filtertext="彰化縣 二林 526 Changhua County">526 彰化縣 二林</li>
+          <li data-filtertext="彰化縣 大城 527 Changhua County">527 彰化縣 大城</li>
+          <li data-filtertext="彰化縣 芳苑 528 Changhua County">528 彰化縣 芳苑</li>
+          <li data-filtertext="彰化縣 二水 530 Changhua County">530 彰化縣 二水</li>
+          <li data-filtertext="南投縣 南投 540 Nantou County">540 南投縣 南投</li>
+          <li data-filtertext="南投縣 中寮 541 Nantou County">541 南投縣 中寮</li>
+          <li data-filtertext="南投縣 草屯 542 Nantou County">542 南投縣 草屯</li>
+          <li data-filtertext="南投縣 國姓 544 Nantou County">544 南投縣 國姓</li>
+          <li data-filtertext="南投縣 埔里 545 Nantou County">545 南投縣 埔里</li>
+          <li data-filtertext="南投縣 仁愛 546 Nantou County">546 南投縣 仁愛</li>
+          <li data-filtertext="南投縣 名間 551 Nantou County">551 南投縣 名間</li>
+          <li data-filtertext="南投縣 集集 552 Nantou County">552 南投縣 集集</li>
+          <li data-filtertext="南投縣 水里 553 Nantou County">553 南投縣 水里</li>
+          <li data-filtertext="南投縣 魚池 555 Nantou County">555 南投縣 魚池</li>
+          <li data-filtertext="南投縣 信義 556 Nantou County">556 南投縣 信義</li>
+          <li data-filtertext="南投縣 竹山 557 Nantou County">557 南投縣 竹山</li>
+          <li data-filtertext="南投縣 鹿谷 558 Nantou County">558 南投縣 鹿谷</li>
+          <li data-filtertext="嘉義市 嘉義市 600 Chiayi City">600 嘉義市 嘉義市</li>
+          <li data-filtertext="嘉義縣 番路 602 Chiayi County">602 嘉義縣 番路</li>
+          <li data-filtertext="嘉義縣 梅山 603 Chiayi County">603 嘉義縣 梅山</li>
+          <li data-filtertext="嘉義縣 竹崎 604 Chiayi County">604 嘉義縣 竹崎</li>
+          <li data-filtertext="嘉義縣 阿里山 605 Chiayi County">605 嘉義縣 阿里山</li>
+          <li data-filtertext="嘉義縣 中埔 606 Chiayi County">606 嘉義縣 中埔</li>
+          <li data-filtertext="嘉義縣 大埔 607 Chiayi County">607 嘉義縣 大埔</li>
+          <li data-filtertext="嘉義縣 水上 608 Chiayi County">608 嘉義縣 水上</li>
+          <li data-filtertext="嘉義縣 鹿草 611 Chiayi County">611 嘉義縣 鹿草</li>
+          <li data-filtertext="嘉義縣 太保 612 Chiayi County">612 嘉義縣 太保</li>
+          <li data-filtertext="嘉義縣 朴子 613 Chiayi County">613 嘉義縣 朴子</li>
+          <li data-filtertext="嘉義縣 東石 614 Chiayi County">614 嘉義縣 東石</li>
+          <li data-filtertext="嘉義縣 六腳 615 Chiayi County">615 嘉義縣 六腳</li>
+          <li data-filtertext="嘉義縣 新港 616 Chiayi County">616 嘉義縣 新港</li>
+          <li data-filtertext="嘉義縣 民雄 621 Chiayi County">621 嘉義縣 民雄</li>
+          <li data-filtertext="嘉義縣 大林 622 Chiayi County">622 嘉義縣 大林</li>
+          <li data-filtertext="嘉義縣 溪口 623 Chiayi County">623 嘉義縣 溪口</li>
+          <li data-filtertext="嘉義縣 義竹 624 Chiayi County">624 嘉義縣 義竹</li>
+          <li data-filtertext="嘉義縣 布袋 625 Chiayi County">625 嘉義縣 布袋</li>
+          <li data-filtertext="雲林縣 斗南 630 Yunlin County">630 雲林縣 斗南</li>
+          <li data-filtertext="雲林縣 大埤 631 Yunlin County">631 雲林縣 大埤</li>
+          <li data-filtertext="雲林縣 虎尾 632 Yunlin County">632 雲林縣 虎尾</li>
+          <li data-filtertext="雲林縣 土庫 633 Yunlin County">633 雲林縣 土庫</li>
+          <li data-filtertext="雲林縣 褒忠 634 Yunlin County">634 雲林縣 褒忠</li>
+          <li data-filtertext="雲林縣 東勢 635 Yunlin County">635 雲林縣 東勢</li>
+          <li data-filtertext="雲林縣 臺西 636 Yunlin County">636 雲林縣 臺西</li>
+          <li data-filtertext="雲林縣 崙背 637 Yunlin County">637 雲林縣 崙背</li>
+          <li data-filtertext="雲林縣 麥寮 638 Yunlin County">638 雲林縣 麥寮</li>
+          <li data-filtertext="雲林縣 斗六 640 Yunlin County">640 雲林縣 斗六</li>
+          <li data-filtertext="雲林縣 林內 643 Yunlin County">643 雲林縣 林內</li>
+          <li data-filtertext="雲林縣 古坑 646 Yunlin County">646 雲林縣 古坑</li>
+          <li data-filtertext="雲林縣 莿桐 647 Yunlin County">647 雲林縣 莿桐</li>
+          <li data-filtertext="雲林縣 西螺 648 Yunlin County">648 雲林縣 西螺</li>
+          <li data-filtertext="雲林縣 二崙 649 Yunlin County">649 雲林縣 二崙</li>
+          <li data-filtertext="雲林縣 北港 651 Yunlin County">651 雲林縣 北港</li>
+          <li data-filtertext="雲林縣 水林 652 Yunlin County">652 雲林縣 水林</li>
+          <li data-filtertext="雲林縣 口湖 653 Yunlin County">653 雲林縣 口湖</li>
+          <li data-filtertext="雲林縣 四湖 654 Yunlin County">654 雲林縣 四湖</li>
+          <li data-filtertext="雲林縣 元長 655 Yunlin County">655 雲林縣 元長</li>
+          <li data-filtertext="台南市 臺南市 中西區 700 Tainan City">700 臺南市 中西區</li>
+          <li data-filtertext="台南市 臺南市 東區 701 Tainan City">701 臺南市 東區</li>
+          <li data-filtertext="台南市 臺南市 南區 702 Tainan City">702 臺南市 南區</li>
+          <li data-filtertext="台南市 臺南市 北區 704 Tainan City">704 臺南市 北區</li>
+          <li data-filtertext="台南市 臺南市 安平區 708 Tainan City">708 臺南市 安平區</li>
+          <li data-filtertext="台南市 臺南市 安南區 709 Tainan City">709 臺南市 安南區</li>
+          <li data-filtertext="台南市 臺南市 永康區 710 Tainan City">710 臺南市 永康區</li>
+          <li data-filtertext="台南市 臺南市 歸仁區 711 Tainan City">711 臺南市 歸仁區</li>
+          <li data-filtertext="台南市 臺南市 新化區 712 Tainan City">712 臺南市 新化區</li>
+          <li data-filtertext="台南市 臺南市 左鎮區 713 Tainan City">713 臺南市 左鎮區</li>
+          <li data-filtertext="台南市 臺南市 玉井區 714 Tainan City">714 臺南市 玉井區</li>
+          <li data-filtertext="台南市 臺南市 楠西區 715 Tainan City">715 臺南市 楠西區</li>
+          <li data-filtertext="台南市 臺南市 南化區 716 Tainan City">716 臺南市 南化區</li>
+          <li data-filtertext="台南市 臺南市 仁德區 717 Tainan City">717 臺南市 仁德區</li>
+          <li data-filtertext="台南市 臺南市 關廟區 718 Tainan City">718 臺南市 關廟區</li>
+          <li data-filtertext="台南市 臺南市 龍崎區 719 Tainan City">719 臺南市 龍崎區</li>
+          <li data-filtertext="台南市 臺南市 官田區 720 Tainan City">720 臺南市 官田區</li>
+          <li data-filtertext="台南市 臺南市 麻豆區 721 Tainan City">721 臺南市 麻豆區</li>
+          <li data-filtertext="台南市 臺南市 佳里區 722 Tainan City">722 臺南市 佳里區</li>
+          <li data-filtertext="台南市 臺南市 西港區 723 Tainan City">723 臺南市 西港區</li>
+          <li data-filtertext="台南市 臺南市 七股區 724 Tainan City">724 臺南市 七股區</li>
+          <li data-filtertext="台南市 臺南市 將軍區 725 Tainan City">725 臺南市 將軍區</li>
+          <li data-filtertext="台南市 臺南市 學甲區 726 Tainan City">726 臺南市 學甲區</li>
+          <li data-filtertext="台南市 臺南市 北門區 727 Tainan City">727 臺南市 北門區</li>
+          <li data-filtertext="台南市 臺南市 新營區 730 Tainan City">730 臺南市 新營區</li>
+          <li data-filtertext="台南市 臺南市 後壁區 731 Tainan City">731 臺南市 後壁區</li>
+          <li data-filtertext="台南市 臺南市 白河區 732 Tainan City">732 臺南市 白河區</li>
+          <li data-filtertext="台南市 臺南市 東山區 733 Tainan City">733 臺南市 東山區</li>
+          <li data-filtertext="台南市 臺南市 六甲區 734 Tainan City">734 臺南市 六甲區</li>
+          <li data-filtertext="台南市 臺南市 下營區 735 Tainan City">735 臺南市 下營區</li>
+          <li data-filtertext="台南市 臺南市 柳營區 736 Tainan City">736 臺南市 柳營區</li>
+          <li data-filtertext="台南市 臺南市 鹽水區 737 Tainan City">737 臺南市 鹽水區</li>
+          <li data-filtertext="台南市 臺南市 善化區 741 Tainan City">741 臺南市 善化區</li>
+          <li data-filtertext="台南市 臺南市 大內區 742 Tainan City">742 臺南市 大內區</li>
+          <li data-filtertext="台南市 臺南市 山上區 743 Tainan City">743 臺南市 山上區</li>
+          <li data-filtertext="台南市 臺南市 新市區 744 Tainan City">744 臺南市 新市區</li>
+          <li data-filtertext="台南市 臺南市 安定區 745 Tainan City">745 臺南市 安定區</li>
+          <li data-filtertext="高雄市 新興區 800 Kaohsiung">800 高雄市 新興區</li>
+          <li data-filtertext="高雄市 前金區 801 Kaohsiung">801 高雄市 前金區</li>
+          <li data-filtertext="高雄市 苓雅區 802 Kaohsiung">802 高雄市 苓雅區</li>
+          <li data-filtertext="高雄市 鹽埕區 803 Kaohsiung">803 高雄市 鹽埕區</li>
+          <li data-filtertext="高雄市 鼓山區 804 Kaohsiung">804 高雄市 鼓山區</li>
+          <li data-filtertext="高雄市 旗津區 805 Kaohsiung">805 高雄市 旗津區</li>
+          <li data-filtertext="高雄市 前鎮區 806 Kaohsiung">806 高雄市 前鎮區</li>
+          <li data-filtertext="高雄市 三民區 807 Kaohsiung">807 高雄市 三民區</li>
+          <li data-filtertext="高雄市 楠梓區 811 Kaohsiung">811 高雄市 楠梓區</li>
+          <li data-filtertext="高雄市 小港區 812 Kaohsiung">812 高雄市 小港區</li>
+          <li data-filtertext="高雄市 左營區 813 Kaohsiung">813 高雄市 左營區</li>
+          <li data-filtertext="高雄市 仁武區 814 Kaohsiung">814 高雄市 仁武區</li>
+          <li data-filtertext="高雄市 大社區 815 Kaohsiung">815 高雄市 大社區</li>
+          <li data-filtertext="南海諸島 東沙 817 South China Sea Islands">817 南海諸島 東沙</li>
+          <li data-filtertext="南海諸島 南沙 819 South China Sea Islands">819 南海諸島 南沙</li>
+          <li data-filtertext="高雄市 岡山區 820 Kaohsiung">820 高雄市 岡山區</li>
+          <li data-filtertext="高雄市 路竹區 821 Kaohsiung">821 高雄市 路竹區</li>
+          <li data-filtertext="高雄市 阿蓮區 822 Kaohsiung">822 高雄市 阿蓮區</li>
+          <li data-filtertext="高雄市 田寮區 823 Kaohsiung">823 高雄市 田寮區</li>
+          <li data-filtertext="高雄市 燕巢區 824 Kaohsiung">824 高雄市 燕巢區</li>
+          <li data-filtertext="高雄市 橋頭區 825 Kaohsiung">825 高雄市 橋頭區</li>
+          <li data-filtertext="高雄市 梓官區 826 Kaohsiung">826 高雄市 梓官區</li>
+          <li data-filtertext="高雄市 彌陀區 827 Kaohsiung">827 高雄市 彌陀區</li>
+          <li data-filtertext="高雄市 永安區 828 Kaohsiung">828 高雄市 永安區</li>
+          <li data-filtertext="高雄市 湖內區 829 Kaohsiung">829 高雄市 湖內區</li>
+          <li data-filtertext="高雄市 鳳山區 830 Kaohsiung">830 高雄市 鳳山區</li>
+          <li data-filtertext="高雄市 大寮區 831 Kaohsiung">831 高雄市 大寮區</li>
+          <li data-filtertext="高雄市 林園區 832 Kaohsiung">832 高雄市 林園區</li>
+          <li data-filtertext="高雄市 鳥松區 833 Kaohsiung">833 高雄市 鳥松區</li>
+          <li data-filtertext="高雄市 大樹區 840 Kaohsiung">840 高雄市 大樹區</li>
+          <li data-filtertext="高雄市 旗山區 842 Kaohsiung">842 高雄市 旗山區</li>
+          <li data-filtertext="高雄市 美濃區 843 Kaohsiung">843 高雄市 美濃區</li>
+          <li data-filtertext="高雄市 六龜區 844 Kaohsiung">844 高雄市 六龜區</li>
+          <li data-filtertext="高雄市 內門區 845 Kaohsiung">845 高雄市 內門區</li>
+          <li data-filtertext="高雄市 杉林區 846 Kaohsiung">846 高雄市 杉林區</li>
+          <li data-filtertext="高雄市 甲仙區 847 Kaohsiung">847 高雄市 甲仙區</li>
+          <li data-filtertext="高雄市 桃源區 848 Kaohsiung">848 高雄市 桃源區</li>
+          <li data-filtertext="高雄市 那瑪夏區 849 Kaohsiung">849 高雄市 那瑪夏區</li>
+          <li data-filtertext="高雄市 茂林區 851 Kaohsiung">851 高雄市 茂林區</li>
+          <li data-filtertext="高雄市 茄萣區 852 Kaohsiung">852 高雄市 茄萣區</li>
+          <li data-filtertext="澎湖縣 馬公 880 Penghu County">880 澎湖縣 馬公</li>
+          <li data-filtertext="澎湖縣 西嶼 881 Penghu County">881 澎湖縣 西嶼</li>
+          <li data-filtertext="澎湖縣 望安 882 Penghu County">882 澎湖縣 望安</li>
+          <li data-filtertext="澎湖縣 七美 883 Penghu County">883 澎湖縣 七美</li>
+          <li data-filtertext="澎湖縣 白沙 884 Penghu County">884 澎湖縣 白沙</li>
+          <li data-filtertext="澎湖縣 湖西 885 Penghu County">885 澎湖縣 湖西</li>
+          <li data-filtertext="金門縣 金沙 890 Kinmen County">890 金門縣 金沙</li>
+          <li data-filtertext="金門縣 金湖 891 Kinmen County">891 金門縣 金湖</li>
+          <li data-filtertext="金門縣 金寧 892 Kinmen County">892 金門縣 金寧</li>
+          <li data-filtertext="金門縣 金城 893 Kinmen County">893 金門縣 金城</li>
+          <li data-filtertext="金門縣 烈嶼 894 Kinmen County">894 金門縣 烈嶼</li>
+          <li data-filtertext="金門縣 烏坵 896 Kinmen County">896 金門縣 烏坵</li>
+          <li data-filtertext="屏東縣 屏東 900 Pingtung County">900 屏東縣 屏東</li>
+          <li data-filtertext="屏東縣 三地門 901 Pingtung County">901 屏東縣 三地門</li>
+          <li data-filtertext="屏東縣 霧臺 902 Pingtung County">902 屏東縣 霧臺</li>
+          <li data-filtertext="屏東縣 瑪家 903 Pingtung County">903 屏東縣 瑪家</li>
+          <li data-filtertext="屏東縣 九如 904 Pingtung County">904 屏東縣 九如</li>
+          <li data-filtertext="屏東縣 里港 905 Pingtung County">905 屏東縣 里港</li>
+          <li data-filtertext="屏東縣 高樹 906 Pingtung County">906 屏東縣 高樹</li>
+          <li data-filtertext="屏東縣 盬埔 907 Pingtung County">907 屏東縣 盬埔</li>
+          <li data-filtertext="屏東縣 長治 908 Pingtung County">908 屏東縣 長治</li>
+          <li data-filtertext="屏東縣 麟洛 909 Pingtung County">909 屏東縣 麟洛</li>
+          <li data-filtertext="屏東縣 竹田 911 Pingtung County">911 屏東縣 竹田</li>
+          <li data-filtertext="屏東縣 內埔 912 Pingtung County">912 屏東縣 內埔</li>
+          <li data-filtertext="屏東縣 萬丹 913 Pingtung County">913 屏東縣 萬丹</li>
+          <li data-filtertext="屏東縣 潮州 920 Pingtung County">920 屏東縣 潮州</li>
+          <li data-filtertext="屏東縣 泰武 921 Pingtung County">921 屏東縣 泰武</li>
+          <li data-filtertext="屏東縣 來義 922 Pingtung County">922 屏東縣 來義</li>
+          <li data-filtertext="屏東縣 萬巒 923 Pingtung County">923 屏東縣 萬巒</li>
+          <li data-filtertext="屏東縣 崁頂 924 Pingtung County">924 屏東縣 崁頂</li>
+          <li data-filtertext="屏東縣 新埤 925 Pingtung County">925 屏東縣 新埤</li>
+          <li data-filtertext="屏東縣 南州 926 Pingtung County">926 屏東縣 南州</li>
+          <li data-filtertext="屏東縣 林邊 927 Pingtung County">927 屏東縣 林邊</li>
+          <li data-filtertext="屏東縣 東港 928 Pingtung County">928 屏東縣 東港</li>
+          <li data-filtertext="屏東縣 琉球 929 Pingtung County">929 屏東縣 琉球</li>
+          <li data-filtertext="屏東縣 佳冬 931 Pingtung County">931 屏東縣 佳冬</li>
+          <li data-filtertext="屏東縣 新園 932 Pingtung County">932 屏東縣 新園</li>
+          <li data-filtertext="屏東縣 枋寮 940 Pingtung County">940 屏東縣 枋寮</li>
+          <li data-filtertext="屏東縣 枋山 941 Pingtung County">941 屏東縣 枋山</li>
+          <li data-filtertext="屏東縣 春日 942 Pingtung County">942 屏東縣 春日</li>
+          <li data-filtertext="屏東縣 獅子 943 Pingtung County">943 屏東縣 獅子</li>
+          <li data-filtertext="屏東縣 車城 944 Pingtung County">944 屏東縣 車城</li>
+          <li data-filtertext="屏東縣 牡丹 945 Pingtung County">945 屏東縣 牡丹</li>
+          <li data-filtertext="屏東縣 恆春 946 Pingtung County">946 屏東縣 恆春</li>
+          <li data-filtertext="屏東縣 滿州 947 Pingtung County">947 屏東縣 滿州</li>
+          <li data-filtertext="台東縣 臺東縣 臺東 台東 950 Taitung">950 臺東縣 臺東</li>
+          <li data-filtertext="台東縣 臺東縣 綠島 951 Taitung">951 臺東縣 綠島</li>
+          <li data-filtertext="台東縣 臺東縣 蘭嶼 952 Taitung">952 臺東縣 蘭嶼</li>
+          <li data-filtertext="台東縣 臺東縣 延平 953 Taitung">953 臺東縣 延平</li>
+          <li data-filtertext="台東縣 臺東縣 卑南 954 Taitung">954 臺東縣 卑南</li>
+          <li data-filtertext="台東縣 臺東縣 鹿野 955 Taitung">955 臺東縣 鹿野</li>
+          <li data-filtertext="台東縣 臺東縣 關山 956 Taitung">956 臺東縣 關山</li>
+          <li data-filtertext="台東縣 臺東縣 海端 957 Taitung">957 臺東縣 海端</li>
+          <li data-filtertext="台東縣 臺東縣 池上 958 Taitung">958 臺東縣 池上</li>
+          <li data-filtertext="台東縣 臺東縣 東河 959 Taitung">959 臺東縣 東河</li>
+          <li data-filtertext="台東縣 臺東縣 成功 961 Taitung">961 臺東縣 成功</li>
+          <li data-filtertext="台東縣 臺東縣 長濱 962 Taitung">962 臺東縣 長濱</li>
+          <li data-filtertext="台東縣 臺東縣 太麻里 963 Taitung">963 臺東縣 太麻里</li>
+          <li data-filtertext="台東縣 臺東縣 金峰 964 Taitung">964 臺東縣 金峰</li>
+          <li data-filtertext="台東縣 臺東縣 大武 965 Taitung">965 臺東縣 大武</li>
+          <li data-filtertext="台東縣 臺東縣 達仁 966 Taitung">966 臺東縣 達仁</li>
+          <li data-filtertext="花蓮縣 花蓮 970 Hualien County">970 花蓮縣 花蓮</li>
+          <li data-filtertext="花蓮縣 新城 971 Hualien County">971 花蓮縣 新城</li>
+          <li data-filtertext="花蓮縣 秀林 972 Hualien County">972 花蓮縣 秀林</li>
+          <li data-filtertext="花蓮縣 吉安 973 Hualien County">973 花蓮縣 吉安</li>
+          <li data-filtertext="花蓮縣 壽豐 974 Hualien County">974 花蓮縣 壽豐</li>
+          <li data-filtertext="花蓮縣 鳳林 975 Hualien County">975 花蓮縣 鳳林</li>
+          <li data-filtertext="花蓮縣 光復 976 Hualien County">976 花蓮縣 光復</li>
+          <li data-filtertext="花蓮縣 豐濱 977 Hualien County">977 花蓮縣 豐濱</li>
+          <li data-filtertext="花蓮縣 瑞穗 978 Hualien County">978 花蓮縣 瑞穗</li>
+          <li data-filtertext="花蓮縣 萬榮 979 Hualien County">979 花蓮縣 萬榮</li>
+          <li data-filtertext="花蓮縣 玉里 981 Hualien County">981 花蓮縣 玉里</li>
+          <li data-filtertext="花蓮縣 卓溪 982 Hualien County">982 花蓮縣 卓溪</li>
+          <li data-filtertext="花蓮縣 富里 983 Hualien County">983 花蓮縣 富里</li>
+        </ul>
+      </div>
+      <div class="ui-block-b">
+        <label for="street1"> <span lang="zh-tw">路(街)名或村里名稱</span> <span lang="en-us">Street</span> </label>
+        <input type="text" name="street1" id="street1" value="" />
+      </div>
+    </div>
+    <div class="yc-rwd-5">
+      <div class="ui-block-a">
+        <label for="section"> <span lang="zh-tw">段</span> <span lang="en-us">Section</span> </label>
+        <input type="number" name="section" id="section" min="1" max="99" value="" data-mini="true" />
+      </div>
+      <div class="ui-block-b">
+        <label for="lane"> <span lang="zh-tw">巷</span> <span lang="en-us">Lane</span> </label>
+        <input type="number" name="lane" id="lane" min="1" max="99" value="" data-mini="true" />
+      </div>
+      <div class="ui-block-c">
+        <label for="alley"> <span lang="zh-tw">弄</span> <span lang="en-us">Alley</span> </label>
+        <input type="number" name="alley" id="alley" min="1" max="99" value="" data-mini="true" />
+      </div>
+      <div class="ui-block-d">
+        <label for="number"> <span lang="zh-tw">號</span> <span lang="en-us">Number</span> </label>
+        <input type="number" name="number" id="number" min="1" value="" data-mini="true" />
+      </div>
+      <div class="ui-block-e">
+        <label for="floor"> <span lang="zh-tw">樓(室)</span> <span lang="en-us">Floor</span> </label>
+        <input type="number" name="floor" id="floor" min="1" value="" data-mini="true" />
+      </div>
+    </div>
+  </div>
+  <div data-role="footer">
+    <div data-role="navbar" data-iconpos="right">
+        <ul>
+            <li><a href="#"><span lang="zh-tw">取消</span> <span lang="en-us">Cancel</span></a></li>
+            <li><a href="#" data-icon="check" class="ui-btn-active"><span lang="zh-tw">儲存</span> <span lang="en-us">Save</span></a></li>
+        </ul>
+    </div>
+  </div>
+</div>
+</body>
+</html>

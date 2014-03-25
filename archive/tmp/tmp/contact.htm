@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+    	<meta name="google-translate-customization" content="6b9a1fafb7f801fe-93cf06c858da6727-gd18f985777b4d66d-f">
+		<meta name="robots" content="none" />        
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+		<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.9.1/jquery-ui.min.js"></script>
+		<script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+		<script src="http://www.google.com/recaptcha/api/js/recaptcha_ajax.js"></script>
+		<script src="/yehcake.js"></script>	
+		<script src="/initCaptcha.js"></script>				
+		<link rel="stylesheet" type="text/css" href="/yehcake.css" />	
+		<!--
+		<meta name="robots" content="noarchive, noodp, noimageindex" />    
+		<link rel="shortcut icon" href="http://assets.yehcake.com/image/yehcake.ico" />
+		<link rel="apple-touch-icon" href="touch-icon-iphone.png" />
+		<link rel="apple-touch-icon" sizes="72x72" href="touch-icon-ipad.png" />
+		<link rel="apple-touch-icon" sizes="114x114" href="touch-icon-iphone4.png" />
+		-->
+		
+		<meta name="description" content="Free Web tutorials">
+		<meta name="keywords" content="HTML,CSS,XML,JavaScript">
+		<link rel="canonical" href="http://yehcake.azurewebsites.net/contact.htm" />
+        <title>Contact Us | Yeh! Cake</title>
+
+        <style>
+        #contactContent {width: 650px; margin-left: auto; margin-right: auto} 
+        #orSpacer {margin-left: 15px; margin-right: 15px;}
+        .centerText {text-align: center;}
+        .contactInfo {font-size: 200%; font-weight: bold; }
+        a.contactInfoLink:link    {color:blue;text-decoration:none;}
+		a.contactInfoLink:visited {color:blue;text-decoration:none;}
+		a.contactInfoLink:hover   {color:red;}
+		a.contactInfoLink:active  {color:blue;} 	
+        </style>
+
+		<script>
+			$(document).ready(function(){
+				$( "#headerPlaceholder" ).load("template.htm #header", function() {
+					$( "#header" ).unwrap();
+					$( "#navbarContactButton" ).prop("checked", true);	
+					$.getScript("initHeader.js", function() {	
+					});
+				});
+				$( "#footerPlaceholder" ).load("template.htm #footer", function() {
+					$( "#footer" ).unwrap();
+					$.getScript("initFooter.js", function() {
+					});					
+				});
+			}); 
+		</script>
+    </head>
+    <body><div id="wrapper">		    
+    	<div id="headerPlaceholder"></div>
+    	<div id="content">
+    		<div id="pageTitle">
+    			<h2 id="breadcrumb">Company &gt;</h2>
+    			<h1 id="pageHeader">Contact Info</h1>
+    		</div>
+    		<div id="contentCenter">
+    <div id="contactContent">
+    <div class="centerText">
+        <span class="contactInfo"><a href="mailto:info@yehcake.com" class="contactInfoLink">info@yehcake.com</a></span><span id="orSpacer">or</span><span class="contactInfo"><a href="tel:0922132253" class="contactInfoLink">09-2213-CAKE</a></span> (2253)
+        </div>
+        <p>You can reach us in a variety of different ways.  You can call or email us.  Or, if you prefer, you can also send us a text message -- SMS, WhatsApp or iMessage.</p>
+        <p>Presently, we only operate on a catering / delivery basis so we have no storefront address.</p><p>&nbsp;</p>
+        <img src="http://assets.yehcake.com/image/yehcake_screenshot_contact1_800x387.gif" width="650px">
+        </div>
+			</div>
+		</div>
+    	<div id="footerPlaceholder"></div>    
+    </div></body>
+</html>

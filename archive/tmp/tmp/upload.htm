@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noarchive, noodp, noimageindex" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Upload</title>
+<link rel="stylesheet" href="//code.jquery.com/mobile/1.4.0/jquery.mobile-1.4.0.min.css" />
+<script src="//code.jquery.com/jquery-1.10.2.min.js"></script>
+<script src="//code.jquery.com/mobile/1.4.0/jquery.mobile-1.4.0.min.js"></script>
+<script>
+    function getLineItemId() {
+        var prefix = new Date();
+        var suffix = Math.floor((Math.random()*100000)+1);
+        return prefix.getTime() + "_" + suffix;
+    }
+    $(document).on("pagecreate", "#uploadPage", function (event) {
+        $("#key").val(getLineItemId());
+    });
+</script>
+</head>
+<body>
+<div id="uploadPage" data-role="page">
+    <div role="main" class="ui-content">
+        <form action="http://yc-dropbox.storage.googleapis.com" method="post" enctype="multipart/form-data">
+            <input type="hidden" id="key" name="key" value="">
+            <input type="hidden" name="GoogleAccessId" value="GOOGBEINSY3AB37BXYLW">
+            <input type="hidden" name="acl" value="bucket-owner-full-control">
+            <input type="hidden" name="success_action_status" value="201">
+            <input type="hidden" name="policy" value="eyJleHBpcmF0aW9uIjoiMjAxNC0wNi0wMVQwMDowMDowMC4wMDBaIiwiY29uZGl0aW9ucyI6W1sic3RhcnRzLXdpdGgiLCIka2V5IiwiIl0sWyJjb250ZW50LWxlbmd0aC1yYW5nZSIsMCwxMDAwMDAwMF0seyJhY2wiOiJidWNrZXQtb3duZXItZnVsbC1jb250cm9sIn0seyJidWNrZXQiOiJ5Yy1kcm9wYm94In0seyJzdWNjZXNzX2FjdGlvbl9zdGF0dXMiOiIyMDEifV19">
+            <input type="hidden" name="signature" value="kILiPYIRzESS1hnMKc+Rkq9XUd0=">
+            <input name="file" type="file">
+            <input type="submit" value="Upload">
+        </form>     
+    </div> <!-- end content -->
+</div> <!-- end page -->
+</body>
+</html>

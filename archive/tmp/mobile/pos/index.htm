@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>POS | Yeh! Cake Mobile</title>
+        <meta charset="utf-8" />
+		<meta name="robots" content="noindex, nofollow, noodp, noimageindex" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="canonical" href="http://m.yehcake.com/register/" />
+        <link rel="stylesheet" href="/library/css/yehcake-flavors.min.css" />
+        <link rel="stylesheet" href="/library/css/jquery.mobile.structure-1.3.0.min.css" /> 
+        <link rel="stylesheet" href="http://www.yehcake.com/library/css/yehcake-common.css" />
+        <link rel="stylesheet" href="/library/css/yehcake-mobile.css" />
+        <script src="/library/js/jquery-1.8.3.js"></script>
+        <script src="/library/js/jquery.mobile-1.3.0.js"></script>
+        <script src="http://www.yehcake.com/library/js/yehcake-common.js"></script>
+        <script src="/library/js/yehcake-mobile.js"></script>
+        <script src="/library/js/yehcake-pos.js"></script>
+        <script>
+            var _gaq = _gaq || [];
+            _gaq.push(['_setAccount', 'UA-35314774-1']);
+            _gaq.push(['_setDomainName', 'yehcake.com']);
+            _gaq.push(['_setAllowLinker', true]);
+            _gaq.push(['_trackPageview']);
+
+            (function () {
+                var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+                ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+                var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+            })();
+
+            $(document).ready(function () {
+            });
+
+            $(document).on("pagebeforecreate", "#order", function () {
+                initForm();
+                //setOrderNum("234");
+            });
+
+            $(document).on("pagebeforeshow", "#order", function () {
+                //alert(JSON.stringify($("body").data("order")));
+                if (($("body").data("order") != undefined) && ($("body").data("order") != null) && (jQuery.isNumeric($("body").data("order").action))) {
+                    var posApp = "https://script.google.com/macros/s/AKfycbzo4jZekb1pzF6-uG7xg8hmHAmsYoUZwfjVx8P9Es3lCbuSxso/exec";
+                    $.get(posApp, $("body").data("order").info, function (response) {
+                        //$("#new-order-number").html(response.count);
+                        //alert(JSON.stringify(response));
+                        $("body").data("order", null);
+                        //$("#payment-submit").button("enable");
+                    }, "jsonp");
+                }
+                resetForm();
+            });
+
+            $(document).on("pageinit", "#order", function () {
+                // EVENT BINDING
+                $("#history-button").click(function () {
+                    jQuery.mobile.changePage("#history");
+                });
+                $("#form-reset").click(function () {
+                    resetForm();
+                });
+                $("select").bind("change", function (event, ui) {
+                    setTotal();
+                });
+                $("#order-submit").click(function () {
+                    //alert(getOrder());
+                    $("body").data("order", { info: getOrder(), total: getTotal().cost });
+                    jQuery.mobile.changePage("#payment");
+                });
+                // OTHER INITIALIZATION
+            });
+
+            $(document).on("pagebeforeshow", "#payment", function () {
+                $("#total").val($("body").data("order").total);
+                $("#received").val("");
+                $("#due").val("");
+                $("#new-order-number").html("Loading ID...");
+                $("#payment-submit").button("disable");
+                var posApp = "https://script.google.com/macros/s/AKfycbzo4jZekb1pzF6-uG7xg8hmHAmsYoUZwfjVx8P9Es3lCbuSxso/exec";
+                $.get(posApp, $("body").data("order").info, function (response) {
+                    $("#new-order-number").html(response.count);
+                    $("body").data("order", { info: "id=" + response.id });
+                    $("#payment-submit").button("enable");
+                }, "jsonp");
+            });
+
+            $(document).on("pageinit", "#payment", function () {
+                $("#received").bind("change", function (event, ui) {
+                    $("#due").val(Number($("#received").val()) - Number($("#total").val()));
+                });
+
+                $("#due").click(function () {
+                    alert("Please do not edit this field.")
+                });
+
+                $("#payment-submit").click(function () {
+                    $("body").data("order", { info: $("body").data("order").info + "&received=" + $("#received").val() + "&action=1", action: 1 });
+                    //alert($("body").data("order").info);
+                    jQuery.mobile.changePage("#order");
+                });
+            });
+		</script>
+        <style>
+            .center {
+                margin-left: auto;
+                margin-right:  auto;
+                width: 220px;
+            }
+        </style>
+    </head>
+    <body>
+        <!-- +++++++++++++++ BEGIN ORDER +++++++++++++++ -->
+        <div data-role="page" id="order">
+            <!-- +++++++++++++++ BEGIN HEADER +++++++++++++++ -->
+            <div id="header" data-theme="a" data-role="header" data-position="fixed">
+                <input type="button" id="history-button" class="ui-btn-left" data-icon="bars" data-iconpos="left" value="History" />
+                <h3 id="order-number">Untitled</h3>
+                <input type="reset" id="form-reset" class="ui-btn-right" value="New Order" />
+            </div> <!-- +++++++++++++++ END HEADER +++++++++++++++ -->
+            <!-- +++++++++++++++ BEGIN CONTENT +++++++++++++++ -->
+            <div data-role="content">
+                <div class="center">
+                    <form id="order-form">
+                        <input type="hidden" name="user" value="john">
+                        <input type="hidden" name="action" value="0">
+                        <fieldset data-role="controlgroup" data-type="horizontal">
+                            <input name="demographic" id="demographic-0" data-theme="a" value="boy" type="radio">
+                            <label for="demographic-0">B</label>
+                            <input name="demographic" id="demographic-1" data-theme="a" value="girl" type="radio">
+                            <label for="demographic-1">G</label>
+                            <input name="demographic" id="demographic-2" data-theme="a" value="man" type="radio">
+                            <label for="demographic-2">M</label>
+                            <input name="demographic" id="demographic-3" data-theme="a" value="woman" type="radio" checked="checked">
+                            <label for="demographic-3">W</label>
+                        </fieldset>
+                        <fieldset data-role="controlgroup" data-type="horizontal" data-mini="true" id="cupcake-original"><legend>Cupcakes:</legend></fieldset>
+                        <fieldset data-role="controlgroup" data-type="horizontal" data-mini="true" id="cakePop-original"><legend>Cake Pops:</legend></fieldset>
+                        <fieldset data-role="controlgroup" data-type="horizontal" data-mini="true" id="bundt-original-07"><legend>Mini-Bundt Cakes:</legend></fieldset>
+                        <!--fieldset data-role="controlgroup" data-type="horizontal" data-mini="true" id="bundt-original-24"><legend>24cm Bundt Cakes:</legend></fieldset-->
+                    </form>
+                </div>
+            </div> <!-- +++++++++++++++ END CONTENT +++++++++++++++ -->
+            <!-- +++++++++++++++ BEGIN FOOTER +++++++++++++++ -->
+            <div data-theme="a" data-role="footer" data-position="fixed">
+                <h3 id="order-total">$0 (0)</h3>
+                <input type="button" id="order-submit" class="ui-btn-right" data-icon="forward" data-iconpos="right" value="Submit" disabled="disabled" />
+            </div> <!-- +++++++++++++++ END FOOTER +++++++++++++++ -->
+        </div> <!-- +++++++++++++++ END ORDER +++++++++++++++ -->
+        <!-- +++++++++++++++ BEGIN PAYMENT +++++++++++++++ -->
+        <div data-role="page" id="payment">
+            <!-- +++++++++++++++ BEGIN HEADER +++++++++++++++ -->
+            <div id="header" data-theme="a" data-role="header" data-position="fixed">
+                <input type="button" id="history-button" class="ui-btn-left" data-icon="bars" data-iconpos="left" value="History" />
+                <h3 id="new-order-number"></h3>
+                <a data-role="button" href="#order" class="ui-btn-right">New Order</a>
+            </div> <!-- +++++++++++++++ END HEADER +++++++++++++++ -->
+            <!-- +++++++++++++++ BEGIN CONTENT +++++++++++++++ -->
+            <div data-role="content">
+                <div class="center">
+                    <fieldset data-role="controlgroup">
+                        <label for="total">Total</label>
+                        <input id="total" type="text" disabled="disabled" />
+                    </fieldset>
+                    <fieldset data-role="controlgroup">
+                        <label for="received">Received</label>
+                        <input name="received" id="received" value="" type="tel">
+                    </fieldset>
+                    <fieldset data-role="controlgroup">
+                        <label for="total">Due</label>
+                        <input id="due" type="text" />
+                    </fieldset>
+                </div>
+            </div> <!-- +++++++++++++++ END CONTENT +++++++++++++++ -->
+            <!-- +++++++++++++++ BEGIN FOOTER +++++++++++++++ -->
+            <div data-theme="a" data-role="footer" data-position="fixed">
+                <h3></h3>
+                <input type="button" id="payment-submit" class="ui-btn-right" data-icon="forward" data-iconpos="right" value="Submit" disabled="disabled" />
+            </div> <!-- +++++++++++++++ END FOOTER +++++++++++++++ -->
+        </div> <!-- +++++++++++++++ END PAYMENT +++++++++++++++ -->
+        <!-- +++++++++++++++ BEGIN HISTORY +++++++++++++++ -->
+        <div data-role="page" id="history">
+            <!-- +++++++++++++++ BEGIN HEADER +++++++++++++++ -->
+            <div id="header" data-theme="a" data-role="header" data-position="fixed">
+                <h3>Open Orders</h3>
+                <a data-role="button" href="#order" class="ui-btn-right">New Order</a>
+            </div> <!-- +++++++++++++++ END HEADER +++++++++++++++ -->
+            <!-- +++++++++++++++ BEGIN CONTENT +++++++++++++++ -->
+            <div data-role="content">
+                <div class="center">
+<table data-role="table" id="previous-orders-table" data-mode="reflow" class="ui-responsive table-stroke">
+
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>
+          <div data-role="controlgroup" data-type="horizontal" data-mini="true">
+        <input data-icon="check" data-iconpos="notext" value="Claim" type="button" data-theme="a">
+        <input data-icon="forward" data-iconpos="notext" value="Modify" type="button" data-theme="a">
+        <input data-icon="delete" data-iconpos="notext" value="Cancel" type="button" data-theme="a">
+              </div>
+      </td>
+    </tr>
+    </tbody>
+</table>
+                </div>
+            </div> <!-- +++++++++++++++ END CONTENT +++++++++++++++ -->
+            <!-- +++++++++++++++ BEGIN FOOTER +++++++++++++++ -->
+            <div data-theme="a" data-role="footer" data-position="fixed">
+                <h3></h3>          
+            </div> <!-- +++++++++++++++ END FOOTER +++++++++++++++ -->
+        </div> <!-- +++++++++++++++ END HISTORY +++++++++++++++ -->
+    </body>
+</html>

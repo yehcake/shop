@@ -1,0 +1,9 @@
+[lang=en-us] {
+	font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+[lang=zh-tw] {
+	font-family: "宋體", PMingLiU, MingLiU, Verdana, Geneva, Tahoma, sans-serif;	
+}
+.text-center {
+    text-align: center;
+}

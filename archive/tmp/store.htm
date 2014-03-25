@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>jQuery Mobile Web App</title>
+<link href="//code.jquery.com/mobile/1.4.0/jquery.mobile-1.4.0.min.css" rel="stylesheet" type="text/css"/>
+<script src="//code.jquery.com/jquery-1.10.2.min.js" type="text/javascript"></script>
+<script src="//code.jquery.com/mobile/1.4.0/jquery.mobile-1.4.0.min.js" type="text/javascript"></script>
+<script src="/js/yehcake.js" type="text/javascript"></script>
+<script>
+    $(document).on("pagecreate", '[data-role="page"]', function (event) {
+        init();
+        $("#target").click(function () {
+            var headers = getData("calendar");
+            alert(headers.length);
+        });
+    });
+</script>
+</head>
+<body>
+<div data-role="page" id="page">
+  <div data-role="header">
+    <h1>Page One</h1>
+  </div>
+  <div data-role="content">
+    <button class="ui-btn ui-corner-all" id="target">Show Result</button>
+  </div>
+  <div data-role="footer">
+    <h4>Page Footer</h4>
+  </div>
+</div>
+</div>
+</body>
+</html>

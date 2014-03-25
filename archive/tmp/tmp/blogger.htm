@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+		<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.9.1/jquery-ui.min.js"></script>
+        <title>Blogger Test</title>
+		<script>
+			function getRandomIndex(max) {
+				var power = String(max.length).length;
+				var rand = Number.MAX_VALUE;
+				var i;
+				
+				while (rand >= max) {
+					rand = Math.floor(Math.random()*Math.pow(10, power));
+				}
+				
+				return rand;
+			}
+			
+			$(document).ready(function(){
+     		
+	     		var url = "https://ajax.googleapis.com/ajax/services/feed/load?v=1.0&num=4&q=http://blog.yehcake.com/feeds/posts/default&callback=?";
+     		
+    	 		$.get(url, function(data){
+    	 			$.each(data.responseData.feed.entries, function(index, entry) { 
+    	 				var i = index + 1;
+    	 				$( "#newsTitle" + i ).text(entry.title);
+    	 				$( "#newsContent" + i).html("<span class='newsDate'>" + entry.publishedDate + "</span><br><span class='newsContent'>" + entry.content + "...</span>&nbsp;<a class='newsLink' href='" + entry.link + "'>Read more »</a>");
+					});
+				}, "jsonp"); 
+
+			}); 
+		</script>        
+    </head>
+    <body>
+    				<div id="news">
+    					<h3 id="newsTitle1">News Loading...</h3><div id="newsContent1"></div>
+    					<h3 id="newsTitle2">News Loading...</h3><div id="newsContent2"></div>
+    					<h3 id="newsTitle3">News Loading...</h3><div id="newsContent3"></div>
+    					<h3 id="newsTitle4">News Loading...</h3><div id="newsContent4"></div>
+    				</div>
+    </body>
+</html>
+

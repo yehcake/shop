@@ -1,0 +1,96 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noarchive, noodp, noimageindex" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Upload</title>
+<link rel="stylesheet" href="//code.jquery.com/mobile/1.4.0/jquery.mobile-1.4.0.min.css" />
+<script src="//code.jquery.com/jquery-1.10.2.min.js"></script>
+<script src="//code.jquery.com/mobile/1.4.0/jquery.mobile-1.4.0.min.js"></script>
+<script>
+    function getMessage(str, element) {
+        var xmlDoc = $.parseXML(str);
+        var $xml = $(xmlDoc);
+        var $result = $xml.find(element);
+        return $result.text();
+    }
+    function getLineItemId() {
+        var prefix = new Date();
+        var suffix = Math.floor((Math.random() * 100000) + 1);
+        return prefix.getTime() + "_" + suffix;
+    }
+    function hideLoader() {
+        $.mobile.loading("hide");
+    }
+    function showLoader(element) {
+        var $this = element,
+            theme = $this.jqmData("theme") || $.mobile.loader.prototype.options.theme,
+            msgText = $this.jqmData("msgtext") || $.mobile.loader.prototype.options.text,
+            textVisible = $this.jqmData("textvisible") || $.mobile.loader.prototype.options.textVisible,
+            textonly = !!$this.jqmData("textonly");
+        html = $this.jqmData("html") || "";
+        $.mobile.loading("show", {
+            text: msgText,
+            textVisible: textVisible,
+            theme: theme,
+            textonly: textonly,
+            html: html
+        });
+    }
+    function uploadFile(formData) {
+        var url = "http://yc-dropbox.storage.googleapis.com";
+        var jqxhr = $.ajax({
+            url: url,
+            type: "POST",
+            data: formData,
+            complete: function (result) {
+                hideLoader();
+            },
+            success: function (result) {
+                $("#reference").val(getMessage(result, "Location"));
+            },
+            error: function (result) {
+                alert("保存失敗 Save failed!");
+            },
+            cache: false,
+            contentType: false,
+            processData: false
+        });
+    }
+    // *****************************************************
+    $(document).on("pagecreate", "#uploadPage", function (event) {
+        var lineItem = getLineItemId();
+        $("#key").val(lineItem);
+        $("#lineItem").val(lineItem);
+    });
+    $(document).on("change", "#file", function (event) {
+        var filename = $("#file").val();
+        if (filename != "") {
+            var formData = new FormData($("#fileUploadForm")[0]);
+            showLoader($(this));
+            uploadFile(formData);
+        }
+    });
+</script>
+</head>
+<body>
+<div id="uploadPage" data-role="page">
+    <div role="main" class="ui-content">
+        <form id="orderForm">
+            <input type="hidden" name="lineItem" id="lineItem" value="">
+            <input type="hidden" name="reference" id="reference" value="">
+        </form>
+        <form id="fileUploadForm" action="http://yc-dropbox.storage.googleapis.com" method="post" enctype="multipart/form-data">
+            <input type="hidden" name="key" id="key" value="">
+            <input type="hidden" name="GoogleAccessId" value="GOOGBEINSY3AB37BXYLW">
+            <input type="hidden" name="acl" value="bucket-owner-full-control">
+            <input type="hidden" name="success_action_status" value="201">
+            <input type="hidden" name="policy" value="eyJleHBpcmF0aW9uIjoiMjAxNS0wMS0wMVQwMDowMDowMC4wMDBaIiwiY29uZGl0aW9ucyI6W1sic3RhcnRzLXdpdGgiLCIka2V5IiwiIl0sWyJjb250ZW50LWxlbmd0aC1yYW5nZSIsMSwxMDAwMDAwMF0seyJhY2wiOiJidWNrZXQtb3duZXItZnVsbC1jb250cm9sIn0seyJidWNrZXQiOiJ5Yy1kcm9wYm94In0seyJzdWNjZXNzX2FjdGlvbl9zdGF0dXMiOiIyMDEifV19">
+            <input type="hidden" name="signature" value="0MmCIjoWe89Od8wIVA2aGbSAf6M=">
+            <input type="file" name="file" id="file" data-textonly="false" data-textvisible="true" data-msgtext="保存 Saving..." data-inline="true">
+        </form>
+    </div> <!-- end content -->
+</div> <!-- end page -->
+</body>
+</html>

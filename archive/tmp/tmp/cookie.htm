@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+		<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.9.1/jquery-ui.min.js"></script>
+		<script src="http://www.google.com/recaptcha/api/js/recaptcha_ajax.js"></script>		    
+        <meta charset="utf-8" />
+        <title>Remote IP, Cookie and Captcha Test</title>
+        <script>
+			function setCookie(name, value) {
+				if ((name.length > 0) && (value.length > 0) && (getCookie(name) == null)) {
+					document.cookie = name + "=" + escape(value);
+					// Expires the cookie in one month
+					// var date = new Date();
+					// date.setMonth(date.getMonth()+1);
+					document.cookie += ("; domain=yehcake.azurewebsites.net");
+					document.cookie += ("; path=/"); 
+				}
+			}
+
+			function getCookie(sName) {
+				// cookies are separated by semicolons
+				var aCookie = document.cookie.split("; ");
+				for (var i=0; i < aCookie.length; i++) {
+					// a name/value pair (a crumb) is separated by an equal sign
+					var aCrumb = aCookie[i].split("=");
+					if (sName == aCrumb[0]) {
+						return unescape(aCrumb[1]);
+					}
+				}
+				// a cookie with the requested name does not exist
+				return null;
+			}			       
+			 
+			function showRecaptcha(element) {
+        		Recaptcha.create("6LdZh9kSAAAAAPC7plaLYCg9Japa0nVapgLBoMMw", element, {
+           		 	theme: "clean",
+            		callback: Recaptcha.focus_response_field});
+         	}
+        
+			$(document).ready(function(){
+     		
+	     		var ipService = "http://www.yehcake.com/service/remoteip";
+     		
+    	 		$.get(ipService, function(data){
+					setCookie("remoteAddr",data);
+				}, "jsonp"); 
+				
+				showRecaptcha('recaptcha');
+				
+				$('form').submit(function() {
+					$( "#remoteAddr" ).val(getCookie("remoteAddr"));
+					var shoppingCartService = "https://script.google.com/a/macros/yehcake.com/s/AKfycbzjWxyrfvMU5Qp4FiisgPuUVbOv0gk8hpsfYLbZseweANAJxVA/exec";
+					$.get(shoppingCartService, $(this).serialize(), function(data){
+						alert(data);
+					}, "jsonp"); 
+					Recaptcha.destroy();
+					return false;
+				});
+				
+				$( "#showCaptchaInfo" ).click(function() {
+					alert(Recaptcha.get_challenge() + " | " + Recaptcha.get_response());
+				});
+
+			});
+		</script>        
+    </head>
+    <body>
+    	<form>
+			<div id="recaptcha"></div>
+			<input type="hidden" id="remoteAddr" name="remoteAddr" value="">
+			<input type="button" id="showCaptchaInfo" value="Show">
+			<input type="submit">
+		</form>
+    </body>
+</html>

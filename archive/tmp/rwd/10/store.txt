@@ -1,0 +1,41 @@
+<!-- begin store page below -->
+<div id="storePage" data-role="page" data-add-back-btn="true">
+  <div role="main" class="ui-content">
+    <div class="yc-content-wrapper">
+      <div class="ui-grid-a yc-form-container">
+        <div class="ui-block-a">
+          <div class="yc-map-wrapper">
+            <iframe width="300" height="400" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com.tw/maps?cid=8635922955233261309&amp;ie=UTF8&amp;hq=&amp;hnear=&amp;t=m&amp;brcurrent=3,0x3442ae741e185a49:0x8c8db93eb1d0d2b6,1,0x3442ac6b61dbbd9d:0xc0c243da98cba64b&amp;ll=25.121352,121.527007&amp;spn=0.007771,0.006437&amp;z=16&amp;iwloc=A&amp;output=embed"></iframe>
+          </div>
+        </div>
+        <div class="ui-block-b">
+          <table data-role="table" data-mode="reflow">
+            <thead>
+              <tr>
+                <th>營業時間</th>
+                <th>地址</th>
+                <th>電話 Phone</th>
+                <th>Email</th>
+                <th>LINE ID</th>
+                <th>Hours</th>
+                <th>Address</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>週二～六 11:00～17:00</td>
+                <td><a href="https://maps.google.com/maps?daddr=25.118559,121.526826+%28Yeh!+Cake%29" target="_blank">台北市天母西路55號B1</a></td>
+                <td><a href="sms:+886922132253">+886-922-132-253</a></td>
+                <td><a href="mailto:info@yehcake.com">info@yehcake.com</a></td>
+                <td>yehcake</td>
+                <td>Tu to Sa 11:00–17:00</td>
+                <td><a href="https://maps.google.com/maps?daddr=25.118559,121.526826+%28Yeh!+Cake%29" target="_blank">B1F, No. 55, Tianmu West Rd, Taipei</a></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- end store page above -->

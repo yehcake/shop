@@ -1,0 +1,114 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noarchive, noodp, noimageindex" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>RWD Test</title>
+<link rel="stylesheet" href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css" />
+<link rel="stylesheet" href="//code.jquery.com/mobile/1.4.0/jquery.mobile-1.4.0.min.css" />
+<link rel="stylesheet" href="form.css" />
+<script src="//code.jquery.com/jquery-1.10.2.min.js"></script>
+<script src="//code.jquery.com/mobile/1.4.0/jquery.mobile-1.4.0.min.js"></script>
+<script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+<script src="form.js"></script>
+<script src="data.js"></script>
+<script>
+    $(document).on("pagebeforecreate", "#orderPage", function (event) {
+        $(".form-field").each(function (index) {
+            $(this).replaceWith(getFormField($(this).text()));
+        });
+    });
+    $(document).on("pagecreate", "#orderPage", function (event) {
+        initSelect("time", getTimes(9, 18, 30));
+        initSelect("quantity", getQuantities(1, 144, 1));
+        initSelect("flavor", getFlavors());
+        initSelect("date", getDates(100, 1));
+        initSelect("budget", getQuantities(3000, 30000, 1000));
+        initAutocomplete("postalCode", getPostalCodes());
+    });
+    //$(document).on("pageinit", function () {
+    $(function () {
+        $("[data-role='navbar']").navbar();
+        $("[data-role='header'], [data-role='footer']").toolbar();
+    });
+</script>
+</head>
+<body>
+  <div data-role="header" data-position="fixed" data-fullscreen="false" data-theme="a">
+    <a href="/" data-rel="back" data-role="button" data-icon="carat-l" data-iconpos="notext">Back</a>
+    <h1>Custom Cake</h1>
+    <a href="#" data-role="button" data-icon="action" data-iconpos="notext">Share</a>
+  </div>
+<div id="orderPage" data-role="page" data-add-back-btn="true">
+  <div role="main" class="ui-content">
+    <div class="yc-content-wrapper">
+      <div class="ui-grid-a yc-form-container">
+        <div class="ui-block-a">
+          <div class="yc-image-wrapper"> <img src="placeholder.jpg" alt="Placeholder"> </div>
+        </div>
+        <div class="ui-block-b">
+          <div class="ui-grid-a yc-form">
+            <div class="ui-block-a">
+              <div class="form-field">flavor</div>
+            </div>
+            <div class="ui-block-b">
+              <div class="form-field">quantity</div>
+            </div>
+            <div class="ui-block-a">
+              <div class="form-field">date</div>
+            </div>
+            <div class="ui-block-b">
+              <div class="form-field">time</div>
+            </div>
+            <div class="ui-block-a">
+              <div class="form-field">deliveryAddress</div>
+            </div>
+            <div class="ui-block-b">
+              <div class="form-field">budget</div>
+            </div>
+            <div class="ui-block-a">
+              <div class="form-field">inscription</div>
+            </div>
+            <div class="ui-block-b">
+              <div class="form-field">occasion</div>
+            </div>
+            <!--div class="ui-block-a">
+          <div class="form-field">photo</div>
+        </div>
+        <div class="ui-block-b">
+          <div class="form-field">comment</div>
+        </div--> 
+          </div>
+          <!-- grid --> 
+        </div>
+        <!-- block --> 
+      </div>
+      <!-- container --> 
+        <div class="yc-submit-wrapper">
+        <button class="ui-btn ui-btn-inline ui-btn-active">加入購物車 Add to Cart</button>
+        <button class="ui-btn ui-btn-inline">結帳 Checkout</button>
+            </div>
+    </div>
+    <!-- wrapper --> 
+  </div>
+  <!-- content --> 
+</div>
+<!-- page -->
+<? 
+ include "products.txt";
+ include "store.txt";
+?>
+    <div data-role="footer" data-position="fixed" data-fullscreen="false" data-theme="a">
+        <div data-role="navbar">
+            <ul>
+                <li><a href="#" data-icon="home">Home</a></li>
+                <li><a href="#productsPage" data-icon="tag">Products</a></li>
+                <li><a href="#storePage" data-icon="location">Store</a></li>
+                <li><a href="#" data-icon="shop">Cart</a></li>
+                <li><a href="#" data-icon="user">Account</a></li>
+            </ul>
+        </div><!-- /navbar -->
+</div><!-- /footer -->
+</body>
+</html>

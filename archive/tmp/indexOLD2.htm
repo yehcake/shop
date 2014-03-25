@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Yeh! Cake</title>
+        <meta charset="utf-8" />
+		<meta name="description" content="Yeh! Cake is a family-owned bakery that brings American-style cakes to the Taipei market. Our focus is making special events special. From wedding cakes to birthday cakes, we offer a variety of delicious cakes and flavors to meet any occasion.">
+		<meta name="keywords" content="cake,cupcakes,bundt,cake pops,birthday,wedding,tianmu,taipei">
+		<meta name="robots" content="noarchive, noodp, noimageindex" />
+		<link rel="canonical" href="http://www.yehcake.com/" />
+        <link rel="stylesheet" href="/library/css/jquery-ui-1.10.1.css" />
+        <link rel="stylesheet" href="/library/css/yehcake-common.css" />
+        <link rel="stylesheet" href="/library/css/yehcake-desktop.css" />
+        <script src="/library/js/jquery-1.9.1.js"></script>
+        <script src="/library/js/jquery-ui-1.10.1.js"></script>
+        <script src="/library/js/yehcake-common.js"></script>
+        <script src="/library/js/yehcake-desktop.js"></script>
+        <script>
+            var _gaq = _gaq || [];
+            _gaq.push(['_setAccount', 'UA-35314774-1']);
+            _gaq.push(['_setDomainName', 'yehcake.com']);
+            _gaq.push(['_setAllowLinker', true]);
+            _gaq.push(['_trackPageview']);
+
+            (function () {
+                var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+                ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+                var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+            })();
+
+            $(document).ready(function () {
+                $(".navbar-button, .logo, .banner").click(function () {
+                    if (($("#content").attr("src")) != getWidgetURL(this.id)) {
+                        $("#content").attr("src", getWidgetURL(this.id));
+                    }
+                });
+                $("#content").attr("src", getWidgetURL(getPageParameter("content")));
+            });
+		</script>
+    </head>
+	<body>
+		<!-- +++++++++++++++ BEGIN PAGE +++++++++++++++ -->
+		<div class="container-page">
+		<!-- +++++++++++++++ BEGIN HEADER +++++++++++++++ -->
+		<div class="container-header">
+		<!-- +++++++++++++++ BEGIN LOGO +++++++++++++++ -->
+		<div class="container-logo">
+			<div class="logo clickable" id="headerLogo">
+				<img src="http://assets.yehcake.com/image/yehcake_logo_103x60.png" width="103" height="60" title="Home 首頁" alt="[ Logo ]" />
+			</div>
+		</div> <!-- +++++++++++++++ END LOGO +++++++++++++++ -->
+		<!-- +++++++++++++++ BEGIN HEADER LINKS +++++++++++++++ -->
+		<div class="container-header-links">
+			<div class="header-links">
+				<a href="http://m.yehcake.com" class="header-link"><span lang="en-us">Mobile</span> <span lang="zh-tw">手機版網站</span></a>
+			</div>
+		</div> <!-- +++++++++++++++ END HEADER LINKS +++++++++++++++ -->
+		<!-- +++++++++++++++ BEGIN NAVBAR +++++++++++++++ -->
+		<div class="container-navbar">
+			<ul class="navbar">
+				<li>
+					<div class="navbar-button clickable" id="navbarButtonAbout">
+						<div lang="en-us">About Us</div>
+						<div lang="zh-tw">關於我們</div>
+					</div>
+				</li>
+				<li>
+					<div class="navbar-button clickable" id="navbarButtonProducts">
+						<div lang="en-us">Products</div>
+						<div lang="zh-tw">產品情報</div>
+					</div>
+				</li>
+				<li>
+					<div class="navbar-button clickable" id="navbarButtonPhotos">
+						<div lang="en-us">Photos</div>
+						<div lang="zh-tw">相片</div>
+					</div>
+				</li>
+				<li>
+					<div class="navbar-button clickable" id="navbarButtonFaq">
+						<div lang="en-us">FAQ</div>
+						<div lang="zh-tw">常見問題</div>
+					</div>
+				</li>
+				<li>
+					<div class="navbar-button clickable" id="navbarButtonContact">
+						<div lang="en-us">Contact Us</div>
+						<div lang="zh-tw">聯絡我們</div>
+					</div>
+				</li>		
+			</ul>
+		</div><div class="container-end"></div> <!-- +++++++++++++++ END NAVBAR +++++++++++++++ -->
+		</div><div class="container-end"></div> <!-- +++++++++++++++ END HEADER +++++++++++++++ -->
+		<!-- +++++++++++++++ BEGIN BANNER +++++++++++++++ -->
+		<div class="container-banner">
+			<div class="banner" id="events">
+				<img src="http://assets.yehcake.com/image/yehcake_banner_events_900x55.png" alt="[ Upcoming Events ]" class="clickable" />
+			</div>
+		</div><div class="container-banner"></div> <!-- +++++++++++++++ END BANNER +++++++++++++++ -->
+		<!-- +++++++++++++++ BEGIN CONTENT +++++++++++++++ -->
+		<div class="container-content">
+	        <iframe src="" id="content" frameBorder="0"></iframe>
+		</div><div class="container-end"></div> <!-- +++++++++++++++ END CONTENT +++++++++++++++ -->
+		<!-- +++++++++++++++ BEGIN FOOTER +++++++++++++++ -->
+		<div class="container-footer">
+            <div class="footer-text">
+                <span lang="en-us">Copyright &copy; 2013 Yeh Cake Co., Ltd.  All rights reserved.</span>
+            </div>
+		</div><div class="container-end"></div> <!-- +++++++++++++++ END FOOTER +++++++++++++++ -->
+		</div><div class="container-end"></div> <!-- +++++++++++++++ END PAGE +++++++++++++++ -->
+        <!-- +++++++++++++++ BEGIN FACEBOOK RECOMMENDATION BAR +++++++++++++++ -->
+            <div id="fb-root"></div>
+            <script>
+                (function(d, s, id) {
+                        var js, fjs = d.getElementsByTagName(s)[0];
+                        if (d.getElementById(id)) return;
+                        js = d.createElement(s); 
+                        js.id = id;
+                        js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=347484502034231";
+                        fjs.parentNode.insertBefore(js, fjs);
+                }(document, 'script', 'facebook-jssdk'));
+            </script>
+            <div class="fb-recommendations-bar" data-href="http://www.facebook.com/yehcake/" data-trigger="manual">
+            </div> <!-- +++++++++++++++ END FACEBOOK RECOMMENDATION BAR +++++++++++++++ -->
+</body>
+
+</html>
+

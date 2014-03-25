@@ -1,0 +1,64 @@
+.ui-btn.my-tooltip-btn, .ui-btn.my-tooltip-btn:hover, .ui-btn.my-tooltip-btn:active {
+    background: none;
+    border: 0;
+}
+.yc-button-example {
+    margin-bottom: 1em;
+}
+.yc-product>.ui-block-a, .yc-product>.ui-block-b, .yc-product>.ui-block-c, .yc-form>.ui-block-a, .yc-form>.ui-block-b, .yc-form>.ui-block-c {
+    width: 100%;
+    float: none;    
+}
+.yc-product > .ui-block-c, .yc-form > .ui-block-c {
+    padding-top: 1em;
+}
+.yc-form-field>.ui-block-a {
+    width: -webkit-calc(100% - 1.8em);
+    width: -moz-calc(100% - 1.8em);
+    width: calc(100% - 1.8em);
+    float: left;
+}
+.yc-form-field>.ui-block-b {
+    width: 1.8em;
+    float: left;
+} 
+.yc-form-note {
+    font-style: italic;
+}
+.yc-form-cover-photo {
+    width: 18.125em;
+    height: 18.125em;
+    border: 0 solid white;
+}
+/* iPhone 5s landscape */
+@media all and (min-width: 35.5em) {
+    .yc-product>.ui-block-a {
+        width: 20em;
+        float: left;
+    } 
+    .yc-product>.ui-block-b {
+        width: -webkit-calc(100% - 20em);
+        width: -moz-calc(100% - 20em);
+        width: calc(100% - 20em);
+        float: left;
+    }
+    .yc-product>.ui-block-c {
+        clear: both;    
+    }
+}
+
+/* @media all and (min-width: 48em) { */
+@media all and (min-width: 35.5em) {    
+    .yc-form>.ui-block-a {
+        width: 51%;
+        float: left;
+        padding-right: 1em;
+    }
+    .yc-form>.ui-block-b {
+        width: 49%;
+        float: left;        
+    }
+    .yc-form>.ui-block-c {
+        clear: both;    
+    } 
+}

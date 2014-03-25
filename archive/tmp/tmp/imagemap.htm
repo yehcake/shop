@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title></title>
+        <link rel="stylesheet" type="text/css" href="../library/css/yehcake.css" />
+        <script src="../library/js/jquery.js" type="text/javascript"></script>
+        <script src="../library/js/jquery-ui.js" type="text/javascript"></script>
+        <script src="../library/js/utilities.js" type="text/javascript"></script>
+        <script src="../library/js/config.js" type="text/javascript"></script>
+        <script src="../library/js/content.js" type="text/javascript"></script>
+        <script type="text/javascript">
+
+            function getProductTableCellSetting(config, id, description, price, occasion) {
+                var result = config;
+                result.category = {};
+                result.category.class = "ui-sprite-" + id;
+                result.category.id = id;
+                result.category.description = description;
+                result.category.price = price;
+                result.category.occasion = occasion;
+                return result;
+            }
+
+            function getProductTableCellThumbnail(config) {
+                var linkAttr = getLinkAttributes(getUrl(getBaseHref("www"), "product/" + config.category.id + "/", getLocaleAsQueryString()), null, null, null, null, null, null);
+                var imgAttr = getImageAttributes(getUrl(getBaseHref("www"), "library/image/transparent.gif", null), null, null, null, null, "ui-sprite-" + config.category.id + " ui-image-clickable", config.category.id + "Thumbnail", null, null);
+                return getDiv("ui-product-table-cell-thumbnail", null, null, getClickableImage(linkAttr, imgAttr));
+            }
+
+            function getProductTableCellFlavorsMap(config) {
+                var innerHtml = "";
+                innerHtml += getArea(config.category.id + "Chocolate", "Chocolate", "0, 0, 28, 25", "rect");
+                innerHtml += getArea(config.category.id + "Carrot", "Carrot", "29, 0, 56, 25", "rect");
+                innerHtml += getArea(config.category.id + "Vanilla", "Vanilla", "57, 0, 84, 25", "rect");
+                innerHtml += getArea(config.category.id + "Banana", "Banana", "85, 0, 112, 25", "rect");
+                innerHtml += getArea(config.category.id + "RedVelvet", "Red Velvet", "113, 0, 140, 25", "rect");
+                return getMap(config.category.id + "FlavorsMap", innerHtml);
+            }
+
+            function getProductTableCellFlavors(config) {
+                var attr = getImageAttributes(getUrl(getBaseHref("image"), "yehcake_button_flavors_140x25.png", null), getTranslation("Flavors", config.locale), null, null, "#" + config.category.id + "FlavorsMap", "ui-product-table-cell-buttons ui-image-clickable", null, null, null);
+                return getDiv("ui-product-table-cell-flavors", null, null, getProductTableCellFlavorsMap(config) + getHtml("img", attr, null)); 
+            }
+
+            function getProductTableCellName(config) {
+                var innerHtml = getA("ui-product-table-cell-anchor", null, null, getUrl(getBaseHref("www"), "product/" + config.category.id + "/", getLocaleAsQueryString()), config.category.description);
+                return getDiv("ui-product-table-cell-name", null, null, innerHtml);
+            }
+
+            function getProductTableCellPrice(config) {
+                return getDiv("ui-product-table-cell-price", null, null, config.category.price);
+            }
+
+            function getProductTableCellOccasion(config) {
+                return getDiv("ui-product-table-cell-occasion", null, null, config.category.occasion);
+            }
+
+            function getProductTableCell(condensedConfig, name) {
+                var config = getProductTableCellSettings(condensedConfig, name);
+                var innerHtml = "";
+                innerHtml += getProductTableCellThumbnail(config);
+                innerHtml += getProductTableCellFlavors(config);
+                innerHtml += getProductTableCellName(config);
+                innerHtml += getProductTableCellPrice(config);
+                innerHtml += getProductTableCellOccasion(config);
+                return getDiv("ui-product-table-cell", config.category.id, null, innerHtml);
+            }
+
+            function getProductTableRow(config, row) {
+                switch (row) {
+                    case 1: return getProductTableCell(config, "layered") + getProductTableCell(config, "bundt") + getProductTableCell(config, "cupcake") + getProductTableCell(config, "cakepop") + getDivBreak(); break;
+                    case 2: return ""; break; // PACKAGES SHOULD GO HERE EVENTUALLY
+                    default: return null;
+                }
+            }
+
+            function getProductTableRows(config) {
+                return getDiv("ui-product-table-row", "productTableRow1", null, getProductTableRow(config, 1)) + getDiv("ui-product-table-row", "productTableRow2", null, getProductTableRow(config, 2));
+            }
+
+            function getProductTable(config) {
+                return getDiv("ui-product-table", "productTable", null, getProductTableRows(config));
+            }
+
+            $(document).ready(function () {
+
+                $("body").append(getProductTable(getInitConfig()));
+
+                $("#bundtBanana").click(function () {
+                    $("#bundtThumbnail").css("background-position", "-342px 0px");
+                });
+                $("#bundtCarrot").click(function () {
+                    $("#bundtThumbnail").css("background-position", "-171px -171px");
+                });
+                $("#bundtChocolate").click(function () {
+                    $("#bundtThumbnail").css("background-position", "0px -171px");
+                });
+                $("#bundtRedVelvet").click(function () {
+                    $("#bundtThumbnail").css("background-position", "-171px 0px");
+                });
+                $("#bundtVanilla").click(function () {
+                    $("#bundtThumbnail").css("background-position", "0px 0px");
+                });
+            });
+
+        </script>
+    </head>
+    <body>
+        <!--div class="ui-product-table" id="productTable">
+            <div class="ui-product-table-row" id="productTableRow1">
+                <div class="ui-product-table-cell" id="bundtCell">
+                    <div class="ui-product-table-cell-image"><img id="bundtImage" src="../library/image/transparent.gif" class="ui-sprite-bundt" /></div>
+                    <div class="ui-product-table-cell-flavors">
+                        <map id="bundtFlavorsMap" name="bundtFlavorsMap">
+	                        <area alt="Chocolate" title="Chocolate" coords="0, 0, 28, 25" id="bundtChocolate" shape="rect" />
+	                        <area alt="Carrot" title="Carrot" coords="29, 0, 56, 25" id="bundtCarrot" shape="rect" />
+	                        <area alt="Vanilla" title="Vanilla" coords="57, 0, 84, 25" id="bundtVanilla" shape="rect" />
+	                        <area alt="Banana" title="Banana" coords="85, 0, 112, 25" id="bundtBanana" shape="rect" />
+	                        <area alt="Red Velvet" title="Red Velvet" coords="113, 0, 140, 25" id="bundtRedVelvet" shape="rect" />
+                        </map>
+                        <img class="ui-product-table-cell-buttons ui-image-clickable" src="http://assets.yehcake.com/image/yehcake_button_flavors_140x25.png" usemap="#bundt" />
+                    </div>
+                    <div class="ui-product-table-cell-name"><a href="http://www.google.com" style="color:#069e1a">No-Nonsense Bundt Cakes</a></div>
+                    <div class="ui-product-table-cell-price">$300 - $1200</div>
+                    <div class="ui-product-table-cell-occasion">slice of comfort</div>
+                </div>
+            </div>
+        </div>
+        <div class="ui-clear-float"></div-->
+    </body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title>1-Click | Yeh! Cake</title>
+        <style type="text/css">
+            .result { text-align: center; }
+        </style>
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+        <script src="http://www.yehcake.com/library/js/yehcake-common.js"></script>
+        <script src="http://www.yehcake.com/library/js/yehcake-desktop.js"></script>
+        <script>
+            $(function () {
+                var webService = "https://script.google.com/macros/s/AKfycbz2djJr2i2JJBFNDSqezijSf2O93EPpLlrV7U5nFKGm4gIN5PQ/exec";
+                var dataType = "jsonp";
+                var queryString = {};
+
+                var email = getPageParameter("e");
+                if (email != null) {
+                    queryString.email = email;
+                }
+                var action = getPageParameter("a");
+                if (action != null) {
+                    queryString.action = action;
+                }
+                var program = getPageParameter("p");
+                if (program != null) {
+                    queryString.program = program;
+                }
+
+                $.get(webService, queryString, function (webServiceResponse, webServiceStatus) {
+                    $(".result:lang(en-us)").html("Success. Please check your email. Thank you!");
+                    $(".result:lang(zh-tw)").html("成功了。請查看您的電子郵件。謝謝！");
+                }, dataType);
+            });
+        </script>
+    </head>
+    <body>
+        <h2 class="result" lang="en-us">An error has occured.  We apologize.  Please <a href="http://help.yehcake.com/contact/">contact us</a>.</h2>
+        <h2 class="result" lang="zh-tw">發生錯誤。很抱歉，我們遇到問題。請跟我們<a href="http://help.yehcake.com/contact/">聯絡</a>。</h2>
+        <h2 class="result">~ Yeh! Cake</h2>
+    </body>
+</html>

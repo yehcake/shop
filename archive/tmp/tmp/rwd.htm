@@ -1,0 +1,124 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noarchive, noodp, noimageindex" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>RWD Test 1</title>
+<link rel="stylesheet" href="//code.jquery.com/mobile/1.4.0/jquery.mobile-1.4.0.min.css" />
+<script src="//code.jquery.com/jquery-1.10.2.min.js"></script>
+<script src="//code.jquery.com/mobile/1.4.0/jquery.mobile-1.4.0.min.js"></script>
+<style>
+.rwd-container {
+	width: 20em;
+	margin-left: auto;
+	margin-right: auto;
+}
+.ui-block-a, .ui-block-b, .ui-block-c {
+ width: 100%;
+ float: none;
+}
+
+@media all and (min-width: 35.5em) {
+.rwd-container, .rwd-container .ui-block-b, .rwd-container .ui-block-c {
+	overflow: hidden;
+}
+.ui-content .rwd-container {
+	width: 35.5em;
+	margin-left: auto;
+	margin-right: auto;
+}
+.rwd-container .ui-block-a {
+	width: 57%;
+	float: left;
+}
+.rwd-container .ui-block-b {
+	width: 43%;
+	float: left;
+	clear: right;
+}
+.ui-block-b .ui-block-a, .ui-block-b .ui-block-b, .ui-block-c {
+	width: 100%;
+	float: none;
+}
+}
+
+@media all and (min-width: 48em) {
+.rwd-container, .rwd-container .ui-block-b, .rwd-container .ui-block-c {
+	overflow: hidden;
+}
+.ui-content .rwd-container {
+	width: 48em;
+	margin-left: auto;
+	margin-right: auto;
+}
+.rwd-container .ui-block-a {
+	width: 42%;
+	float: left;
+}
+.rwd-container .ui-block-b {
+	width: 58%;
+	float: left;
+	clear: right;
+}
+.rwd-container .ui-block-c, .ui-block-b .ui-block-c {
+	width: 100%;
+	float: none;
+}
+.ui-block-b .ui-block-a, .ui-block-b .ui-block-b {
+	width: 50.0%;
+	float: left;
+}
+.ui-block-b .ui-block-b {
+	clear: right;
+}
+}
+</style>
+</head>
+<body>
+<div id="addressPage" data-role="page">
+  <div role="main" class="ui-content">
+    <div class="rwd-container">
+      <div class="ui-block-a">
+        <label for="select-a">Quantity A</label>
+        <select name="select-a" id="select-a" data-mini="true">
+          <option value="#">Please Choose</option>
+        </select>
+      </div>
+      <div class="ui-block-b">
+        <div class="ui-block-a">
+          <label for="select-1">Quantity 1</label>
+          <select name="select-1" id="select-1" data-mini="true">
+            <option value="#">Please Choose</option>
+          </select>
+        </div>
+        <div class="ui-block-b">
+          <label for="select-2">Quantity 2</label>
+          <select name="select-2" id="select-2" data-mini="true">
+            <option value="#">Please Choose</option>
+          </select>
+        </div>
+        <div class="ui-block-c">
+        <fieldset data-role="collapsible" data-iconpos="right" data-mini="true" class="ui-corner-all">
+          <legend>選項 Options</legend>
+          <label for="textinput-f">Text Input:</label>
+          <input name="textinput-f" id="textinput-f" placeholder="Text input" value="" type="text">
+          <div data-role="controlgroup">
+            <input name="checkbox-1-a" id="checkbox-1-a" type="checkbox">
+            <label for="checkbox-1-a">One</label>
+            <input name="checkbox-2-a" id="checkbox-2-a" type="checkbox">
+            <label for="checkbox-2-a">Two</label>
+            <input name="checkbox-3-a" id="checkbox-3-a" type="checkbox">
+            <label for="checkbox-3-a">Three</label>
+          </div>
+        </fieldset>
+        </div>
+      </div>
+      <div class="ui-block-c">
+        <a href="#" class="ui-mini ui-btn ui-corner-all ui-btn-active">加入購物車 Add to Cart</a>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

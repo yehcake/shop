@@ -1,0 +1,9 @@
+.content-column-single {
+    display: block; 
+    margin-left: auto;
+    margin-right: auto;
+    width: 282px;     
+}
+.faq-answer {
+    font-size: small;
+}

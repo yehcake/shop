@@ -1,0 +1,72 @@
+.ui-btn.my-tooltip-btn,
+.ui-btn.my-tooltip-btn:hover,
+.ui-btn.my-tooltip-btn:active {
+    background: none;
+    border: 0;
+}
+
+.yc-image-wrapper {
+    width: 20em;
+    height: 21em;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.yc-form-container>.ui-block-a, .yc-form-container>.ui-block-b, .yc-form>.ui-block-a, .yc-form>.ui-block-b {
+    padding-left: 0em;
+    width: 100%;
+    float: none;    
+}
+
+.yc-form-field>.ui-block-a {
+    width: -webkit-calc(100% - 1.8em);
+    width: -moz-calc(100% - 1.8em);
+    width: calc(100% - 1.8em);
+    float: left;
+}
+
+.yc-form-field>.ui-block-b {
+    width: 1.8em;
+    float: left;
+}  
+
+@media all and (min-width: 35.5em) {
+.rwd-container, .rwd-container .ui-block-b, .rwd-container .ui-block-c {
+	overflow: hidden;
+}
+.yc-form>.ui-block-a, .yc-form>.ui-block-b {
+    width: 50%;
+    float: left;    
+}
+.yc-form>.ui-block-b {
+    padding-left: 3em;
+    clear: right;
+}
+}
+
+@media all and (min-width: 55.5em) {
+.yc-content-wrapper {
+    width: 55.5em;
+    margin-left: auto;
+    margin-right: auto;
+}    
+.yc-form-container>.ui-block-a {
+    width: 25em;
+    float: left;    
+}
+.yc-form-container>.ui-block-b {
+    width: -webkit-calc(100% - 25em);
+    width: -moz-calc(100% - 25em);
+    width: calc(100% - 25em);
+    float: left;
+    clear: right;   
+}
+}
+
+@media all and (min-width: 64em) {
+.yc-content-wrapper {
+    width: 64em;
+    margin-left: auto;
+    margin-right: auto;
+}
+}

@@ -1,0 +1,199 @@
+@import url("jquery-ui.css");
+
+.ui-form-field-hidden {
+    display: none;    
+}
+.ui-image-clickable {
+	border-width: 0px;
+    cursor: pointer;
+}
+.ui-header-north-west {
+	float: left;
+	width: 124px;
+}
+#contentContainer {
+	margin-right: auto;
+	margin-left: auto;
+	width: 900px;
+}
+.ui-header-north {
+	width: 656px;
+	float: left;
+	height: 59px;
+}
+.ui-text-testimonial {
+	text-align: center;
+	font-size: 120%;
+	color: #C0C0C0;
+	font-weight: bold;
+	font-style: italic;
+	padding-top: 18px;
+}
+.ui-header-north-east {
+	float: left;
+	width: 100px;
+	text-align: right;
+	font-size: 80%;
+}
+.ui-clear-float {
+	clear: both;
+}
+.ui-spinner-medium {
+    display: block;
+    padding-top: 10px;
+    margin-left: auto;
+    margin-right: auto
+}
+body {
+	font-family: Verdana, Geneva, Tahoma, sans-serif;
+	font-size: small;
+	margin-top: 0px;
+}
+#systemMessage {
+	border-radius: 5px;
+	text-align: center;
+	font-weight: bold;
+	font-size: 120%;
+	background-color: #FF6A6A;
+	margin-top: 10px;
+}
+header {
+	padding-top: 10px;
+	padding-right: 10px;
+	padding-left: 10px;
+}
+nav {
+	padding-top: 10px;
+}
+a {
+    color: #000;
+	text-decoration: none;
+}
+a:visited {
+    color: #000;
+	text-decoration: none;
+}
+a:link {
+	text-decoration: none;
+}
+a:hover {
+	color: #FF33CC;
+    text-decoration: underline;
+    cursor: pointer;    
+}
+#hiddenSection {
+	display: none;
+}
+.ui-body-main {
+	padding-top: 10px;
+	padding-right: 10px;
+	padding-left: 10px;
+}
+.ui-text-breadcrumb {
+	font-size: 90%;
+}
+.ui-content-main>h1 {
+	margin-top: 0px;
+	font-size: 180%;
+}
+.ui-body-west {
+	float: left;
+	width: 570px;
+}
+.ui-body-east {
+	padding-left: 10px;
+	float: left;
+	width: 300px;
+	padding-top: 10px;
+}
+.ui-footer-south-west {
+	width: 0px;
+	float: left;
+}
+#feedbackButton {
+    font-size: 80%;
+}
+.ui-footer-south-east {
+	width: 120px;
+    text-align: right;
+	float: left;
+}
+.ui-footer-south {
+	float: left;
+	width: 760px;
+	margin-right: auto;
+	margin-left: auto;
+}
+footer {
+	padding-top: 10px;
+	padding-right: 10px;
+	padding-left: 10px;
+}
+.ui-social-buttons {
+	width: 138px;
+	margin-right: auto;
+	margin-left: auto;
+}
+.ui-product-table {
+
+}
+.ui-product-table-row {
+
+}
+.ui-product-table-cell {
+    padding-right: 65px;
+    float: left;
+}
+.ui-product-table-cell-thumbnail {
+    width: 160px;
+    height: 160px;
+}
+.ui-product-table-cell-flavors {
+    padding-top: 30px;
+}
+.ui-product-table-cell-buttons {
+     width: 140px;
+     height: 25px;
+}
+.ui-product-table-cell-name {
+    padding-top: 10px;
+    height: 20px;
+}
+.ui-product-table-cell-price {
+    padding-top: 10px;
+    color: #808080;
+}
+.ui-product-table-cell-occasion {
+    padding-top: 10px;
+    font-weight: bold;
+    height: 50px;    
+}
+.ui-sprite-bundt {
+    width: 160px;
+    height: 160px;    
+    background-image: url("http://assets.yehcake.com/image/yehcake_sprite_bundt_512x341.png");
+    background-repeat: no-repeat;
+    background-position: -342px 0px;
+}
+.ui-sprite-cakepop {
+    width: 160px;
+    height: 160px;    
+    background-image: url("http://assets.yehcake.com/image/yehcake_sprite_cakepop_512x341.png");
+    background-repeat: no-repeat;
+    background-position: -342px 0px;
+}
+.ui-sprite-cupcake {
+    width: 160px;
+    height: 160px;    
+    background-image: url("http://assets.yehcake.com/image/yehcake_sprite_cupcake_512x341.png");
+    background-repeat: no-repeat;
+    background-position: -342px 0px;
+}
+.ui-sprite-layered {
+    width: 160px;
+    height: 160px;    
+    background-image: url("http://assets.yehcake.com/image/yehcake_sprite_bundt_512x341.png");
+    background-repeat: no-repeat;
+    background-position: -342px 0px;
+}
+

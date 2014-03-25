@@ -1,0 +1,22 @@
+.ui-btn.my-tooltip-btn,
+.ui-btn.my-tooltip-btn:hover,
+.ui-btn.my-tooltip-btn:active {
+    background: none;
+    border: 0;
+}
+
+.yc-form-field>.ui-block-a {
+    width: 91%;
+    float: left;
+}
+
+.yc-form-field>.ui-block-b {
+    width: 9%;
+    float: left;
+}  
+
+.yc-form-field>.ui-block-c {
+    width: 100%;
+    float: none;
+    clear: left;
+} 

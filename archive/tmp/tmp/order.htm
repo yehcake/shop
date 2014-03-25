@@ -1,0 +1,100 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noarchive, noodp, noimageindex" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>地址查詢 Address Lookup</title>
+<link rel="stylesheet" href="//code.jquery.com/mobile/1.4.0/jquery.mobile-1.4.0.min.css" />
+<link rel="stylesheet" href="/css/yehcake.css" />
+<script src="//code.jquery.com/jquery-1.10.2.min.js"></script>
+<script src="//code.jquery.com/mobile/1.4.0/jquery.mobile-1.4.0.min.js"></script>
+<script src="/js/data.js"></script>
+<script>
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-35314774-1']);
+    _gaq.push(['_setDomainName', 'yehcake.com']);
+    _gaq.push(['_setAllowLinker', true]);
+    _gaq.push(['_trackPageview']);
+
+    (function () {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+
+    $(document).on("pageinit", "#addressPage", function (event) {
+        $(document).on("click", "#save", function () {
+            var count = $("#autocomplete>li :not(.ui-screen-hidden)").length;
+            alert(count);
+        });
+    });
+
+    $(document).on("click tap", "#autocomplete li", function () {
+        var selectedItem = $(this).html();
+        $("#autocomplete").prev("form").find("input").val(selectedItem);
+        $("#autocomplete").children().addClass("ui-screen-hidden");
+    });
+</script>
+</head>
+<body>
+<div id="addressPage" data-role="page">
+  <div role="main" class="ui-content">
+    <div class="yc-rwd-3">
+      <div class="ui-block-a">
+        <iframe src="https://docs.google.com/presentation/d/1fw7ShgVzb3KPyfWrxdoDotr_4m3nsuTBwrN_vlJAq8Y/embed?start=true&loop=true&delayms=3000" frameborder="0" width="288" height="317" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+      </div>
+      <div class="ui-block-b">
+        <label for="select-h-5a">Quantity</label>
+        <select name="select-h-5a" id="select-h-5a" data-mini="true">
+          <option value="#">One</option>
+          <option value="#">Two</option>
+          <option value="#">Three</option>
+        </select>
+        <label for="select-h-5b">Flavor</label>
+        <select name="select-h-5b" id="select-h-5b" data-mini="true">
+          <option value="#">One</option>
+          <option value="#">Two</option>
+          <option value="#">Three</option>
+        </select>
+        <!--label for="file">File:</label>
+        <input name="file" id="file" value="" type="file" data-mini="true"-->
+      </div>
+      <div class="ui-block-c">
+        <label for="select-h-1a">Date</label>
+        <select name="select-h-1a" id="select-h-1a" data-mini="true">
+          <option value="#">2014年1月21日 星期二</option>
+          <option value="#">Two</option>
+          <option value="#">2014年1月21日 星期二</option>
+        </select>
+        <label for="select-h-1b">Time</label>
+        <select name="select-h-1b" id="select-h-1b" data-mini="true">
+          <option value="#">13:30</option>
+          <option value="#">Two</option>
+          <option value="#">Three</option>
+        </select>
+        <fieldset data-role="collapsible" data-iconpos="right" data-mini="true">
+          <legend>選項 Options</legend>
+          <label for="textinput-f">Text Input:</label>
+          <input name="textinput-f" id="textinput-f" placeholder="Text input" value="" type="text">
+          <div data-role="controlgroup">
+            <input name="checkbox-1-a" id="checkbox-1-a" type="checkbox">
+            <label for="checkbox-1-a">One</label>
+            <input name="checkbox-2-a" id="checkbox-2-a" type="checkbox">
+            <label for="checkbox-2-a">Two</label>
+            <input name="checkbox-3-a" id="checkbox-3-a" type="checkbox">
+            <label for="checkbox-3-a">Three</label>
+          </div>
+        </fieldset>
+      </div>
+    </div>
+      <div data-role="navbar">
+    <ul>
+        <li><a href="#" class="ui-btn-active">加入購物車 Add to Cart</a></li>
+    </ul>
+
+</div>
+  </div>
+</div>
+</body>
+</html>

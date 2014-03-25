@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+    	<meta name="google-translate-customization" content="6b9a1fafb7f801fe-93cf06c858da6727-gd18f985777b4d66d-f"></meta>
+		<meta name="robots" content="none" />        
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+		<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.9.1/jquery-ui.min.js"></script>
+		<script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+		<script src="/yehcake.js"></script>
+		<link rel="stylesheet" type="text/css" href="/yehcake.css" />
+		<!--
+		<meta name="robots" content="noarchive, noodp, noimageindex" />    
+		<link rel="shortcut icon" href="http://assets.yehcake.com/image/yehcake.ico" />
+		<link rel="apple-touch-icon" href="touch-icon-iphone.png" />
+		<link rel="apple-touch-icon" sizes="72x72" href="touch-icon-ipad.png" />
+		<link rel="apple-touch-icon" sizes="114x114" href="touch-icon-iphone4.png" />
+		-->
+		
+		<!-- BEGINNING OF PAGE SPECIFIC INFORMATION -->
+		<meta name="description" content="Free Web tutorials">
+		<meta name="keywords" content="HTML,CSS,XML,JavaScript">
+		<link rel="canonical" href="http://yehcake.azurewebsites.net/" />
+        <title>Yeh! Cake | Cake Simply&trade;</title>
+
+		<script>
+			$(document).ready(function(){
+				$( "#headerPlaceholder" ).load("template.htm #header", function() {
+					$( "#header" ).unwrap();
+					$( "#navbarHomeButton" ).prop("checked", true);	
+					$.getScript("initHeader.js", function() {	
+					});
+				});
+				$( "#footerPlaceholder" ).load("template.htm #footer", function() {
+					$( "#footer" ).unwrap();
+					$.getScript("initFooter.js", function() {
+					});					
+				});			
+				// BEGIN NEWS
+				var url = "https://ajax.googleapis.com/ajax/services/feed/load?v=1.0&num=4&q=http://blog.yehcake.com/feeds/posts/default&callback=?";
+				$( "#news" ).accordion({
+					heightStyle: "content",
+					header: "h3"
+				});     		
+    	 		$.get(url, function(data){
+    	 			$.each(data.responseData.feed.entries, function(index, entry) { 
+    	 				var i = index + 1;
+    	 				$( "#newsTitle" + i ).text(entry.title);
+    	 				$( "#newsContent" + i).html("<span class='newsDate'>" + entry.publishedDate + "</span><br><span class='newsContent'>" + entry.content + "...</span>&nbsp;<a class='newsLink' href='" + entry.link + "'>Read more »</a>");
+					});
+				}, "jsonp"); 				
+        		// END NEWS     		
+			}); 
+		</script>
+    </head>
+    <body><div id="wrapper">		    
+    	<div id="headerPlaceholder"></div>
+    	<div id="content">
+
+    		<div id="bannerAd">
+    			Banner Ad Goes Here
+			</div>
+
+    		<div id="contentLeft">
+				<div id="splashImage"><img src="http://assets.yehcake.com/image/yehcake_splash_543x487.png" class="clickableImage"></div>
+    		</div>
+
+    		<div id="contentRight">
+    			<div id="fb-root"></div>
+				<div class="fb-like" data-href="http://www.yehcake.com" data-send="true" data-width="290" data-show-faces="false" data-font="verdana"></div>
+    			<div id="affiliatesBannerAd">Affiliates Banner Ad Here</div>
+    			<h1 id="newsHeader">Latest News</h1>
+    			<div id="newsContainer">
+    				<div id="news">
+    					<h3 id="newsTitle1">News Loading...</h3><div id="newsContent1"></div>
+    					<h3 id="newsTitle2"></h3><div id="newsContent2"></div>
+    					<h3 id="newsTitle3"></h3><div id="newsContent3"></div>
+    					<h3 id="newsTitle4"></h3><div id="newsContent4"></div>
+    				</div>
+    			</div>  		
+	    	</div>	    	    	
+    	</div>
+    	<div id="footerPlaceholder"></div>    
+    </div></body>
+</html>

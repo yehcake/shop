@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+		<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.9.1/jquery-ui.min.js"></script>
+		<link rel="stylesheet" href="http://code.jquery.com/ui/1.9.1/themes/base/jquery-ui.css" />		
+        <meta charset="utf-8" />
+        <title>Contact Form</title>
+	    <script>
+	    	function setAddress(str, addressVersion, prefix, suffix) {
+	    		if (str != "") {
+	    			if ((prefix != "") && (suffix != "")) {
+	    				addressVersion.english = prefix + " " + str + ", " + addressVersion.english;
+	    				addressVersion.chinese = addressVersion.chinese + str + suffix;	
+	    			} else {
+	    				addressVersion.english = str + ", " + addressVersion.english;	
+	    				addressVersion.chinese = addressVersion.chinese + str;
+	    			}
+	    		}
+	    		return addressVersion;
+	    	}
+	    	
+    		$(function() {
+        		//var tooltips = $( "[title]" ).tooltip("option", "hide", { effect: "explode", duration: 1000 });
+        		$( "#postalCode" ).change(function() {
+        			// !!remember to invalidate street entry here!!	
+  					var webService = "https://script.google.com/a/macros/yehcake.com/s/AKfycbx9Qin_lPXrfILUnTYcz2A8km7lRXo17ZuEf3QdVQJzw_HrODhM/exec";
+					var dataType = "jsonp";
+					var queryString = { q: this.value };
+					$( "#street" ).prop("disabled", true);
+                    $.get(webService, queryString, function (webServiceResponse, webServiceStatus) { 
+                    	$( "#street" ).prop("disabled", false);
+                    	$( "#city" ).val(webServiceResponse.city_en);
+                    	$( "#city_zh" ).val(webServiceResponse.city_zh);
+                    	$( "#district" ).val(webServiceResponse.area_en);
+                    	$( "#district_zh" ).val(webServiceResponse.area_zh);
+                    	$( "#street" ).autocomplete({
+           					source: webServiceResponse.roads
+        				});
+                    }, dataType);
+				});
+				$( "#street" ).change(function() { 
+					var english = /[a-zA-Z]+/;
+					var addressVersion = {"english":"","chinese":""};
+					addressVersion = setAddress($( "#postalCode" ).val(), addressVersion, "", "");
+					if (english.test(this.value)) {
+						addressVersion = setAddress($( "#city" ).val(), addressVersion, "", "");
+						addressVersion = setAddress($( "#district" ).val(), addressVersion, "", "");
+					} else {
+						addressVersion = setAddress($( "#city_zh" ).val(), addressVersion, "", "");
+						addressVersion = setAddress($( "#district_zh" ).val(), addressVersion, "", "");
+					}
+					addressVersion = setAddress($( "#street" ).val(), addressVersion, "", "");
+					addressVersion = setAddress($( "#lane" ).val(), addressVersion, "Ln.", "巷");
+					addressVersion = setAddress($( "#alley" ).val(), addressVersion, "Alley", "弄");
+					addressVersion = setAddress($( "#number" ).val(), addressVersion, "No.", "號");	
+					addressVersion = setAddress($( "#ext" ).val(), addressVersion, "Ext.", "之");	
+					addressVersion = setAddress($( "#floor" ).val(), addressVersion, "Fl.", "樓");									
+					if (english.test(this.value)) {
+						$( "#fullAddress" ).val(addressVersion.english);
+					} else {
+						$( "#fullAddress" ).val(addressVersion.chinese);
+					}
+				});
+        		$( "#dialog-form" ).dialog({
+            		autoOpen: false,
+            		height: 550,
+            		width: 600,
+            		modal: true,
+            		buttons: {
+                		"Update": function() {
+                    		var bValid = true;
+ 
+                    		if ( bValid ) {
+                        		$( this ).dialog( "close" );
+                        		// !!remember to disable address helper fieldset here so values aren't submitted!!
+                    		}
+                		},
+                		Cancel: function() {
+                    		$( this ).dialog( "close" );
+                		}
+            		},
+            		close: function() {
+
+            		}
+        		});
+        		$( "#addressHelperLink" ).click(function() {
+        			// !!remember to enable address helper fieldset here!!
+                	$( "#dialog-form" ).dialog( "open" );
+                	// !!pushState to get rid of hash in href!!
+            	});				
+    		});
+    	</script>
+    <style>
+	body {
+		font-family: "Trebuchet MS", "Helvetica", "Arial",  "Verdana", "sans-serif";
+	}    
+    label {
+        display: inline-block; width: 200px;
+    }
+    fieldset div {
+        margin-bottom: 10px;
+    }
+    fieldset .help {
+        display: inline-block;
+    }
+    .ui-tooltip {
+        width: 190px;
+        font-size: 60%;
+    }
+    </style>    	
+    </head>
+    <body>
+		<form>
+        	<div>
+         		<label for="fullName">Name 姓名</label>
+    			<input id="fullName" name="fullName" title="e.g., Pat Hsu or 或 許建國" />
+  		  	</div>
+   		    <div>
+        		<label for="email">Email 電子郵件</label>
+        		<input id="email" name="email" title="e.g., hsu323518@pchome.com.tw" />
+        	</div>
+   		   	<div>
+        		<label for="phone">Phone 電話</label>
+        		<input id="phone" name="phone" title="e.g., 0912345678" />
+        	</div>
+        	<div>
+        		<label for="phone">Address 地址</label>
+        		<input id="fullAddress" name="fullAddress" />
+        		We recommend you use our <a href="#" id="addressHelperLink">address helper</a>.
+        	</div>
+        	<div>
+        		<label for="mailingList">Join Our Mailing List</label>
+        		<input id="mailingList" name="mailingList" type="checkbox" checked="checked" />
+        	</div>        		
+        	<div id="dialog-form" title="Address Helper">
+    			<p class="validateTips">* Required</p>	
+    			<fieldset id="addressHelper">     		        		  		  		
+   				    <div>
+       		 			<label for="postalCode">Postal Code 郵遞區號 *</label>
+   		     			<input id="postalCode" name="postalCode" title="e.g., 111" />
+        			</div>       		        		
+        			<div>
+            			<label for="street">Street 路(街)名或村里名稱 *</label>
+            			<input id="street" name="street" title="e.g., Zhongshan N. Rd. or 或 中山北路" />
+        			</div>
+        			<div>
+            			<label for="lane">Lane 巷</label>
+            			<input id="lane" name="lane" title="e.g., 756" />
+        			</div>
+        			<div>
+            			<label for="alley">Alley 弄</label>
+            			<input id="alley" name="alley" title="e.g., 22" />
+        			</div>
+        			<div>
+            			<label for="number">No. 號</label>
+            			<input id="number" name="number" title="e.g., 100" />
+        			</div>
+        			<div>
+            			<label for="ext">Ext. 之號</label>
+            			<input id="ext" name="ext" title="e.g., 8" />
+        			</div>
+        			<div>
+            			<label for="floor">Floor 樓</label>
+            			<input id="floor" name="floor" title="e.g., 25" />
+        			</div>
+        			<input id="city" name="city" type="hidden" />
+        			<input id="city_zh" name="city_zh" type="hidden" />
+        			<input id="district" name="district" type="hidden" />
+        			<input id="district_zh" name="district_zh" type="hidden" />          		        		        		           		        		        		
+    			</fieldset>
+    		</div>
+		</form>        
+    </body>
+</html>

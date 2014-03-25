@@ -1,0 +1,298 @@
+@import url("http://code.jquery.com/ui/1.9.1/themes/base/jquery-ui.css");
+
+body {
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    color:#333;
+    background: #ffffff;
+    margin-top: 0px;
+}
+
+#wrapper {
+	margin-left: auto;
+	margin-right: auto;	
+	border: 0px;
+	padding: 0px;
+    width: 900px;
+}
+
+#javascriptRequired {
+
+}
+
+#javascriptRequiredIcon {
+	float: left;
+	margin-left: 5em;
+	margin-right: .2em;
+}
+
+#header {
+	margin: 0px;
+	border: 0px;
+	padding: 0px;
+	width: 900px;
+}
+
+#headerLeft {
+	float: left;
+	clear: left;
+	margin: 0px;
+	border: 0px;
+	padding-top: 10px;
+	padding-left: 10px;	
+	width: 160px;
+	height: 65px;
+}
+
+#headerCenter {
+	float: left;
+	margin: 0px;
+	border: 0px;
+	padding-top: 10px;	
+	width: 600px;
+	height:65px;
+}
+
+#headerRight {
+	float: left;
+	margin-right: 0px;
+	border: 0px;
+	padding-top: 10px;
+	padding-right: 10px;	
+	width: 120px;
+	height: 65px;
+	text-align: right;
+}
+
+a.headerLinks:link {
+	color: #444;
+	text-decoration: none;
+}
+
+a.headerLinks:hover {
+	color: #000;
+	text-decoration: underline;
+}
+
+#headerReview {
+	position: relative;
+	top: 20%;
+	font-size: 150%;
+	font-style: italic;
+	color: #dcdcdc;
+}
+
+.clickableImage {
+	border: 0px;
+}
+
+#navbar {
+	float: left;
+	clear: left;
+	margin: 0px;
+	border: 0px;
+	padding-top: 10px;
+	padding-left: 10px;
+}
+
+#bannerAd {
+	background: #dcdcdc;
+	float: left;
+	clear: left;
+	margin-top: 15px;
+	margin-bottom: 15px;
+	margin-left: 10px;
+	margin-right: 10px;
+	border: 0px;
+	padding: 0px;	
+	width: 880px;
+	height: 50px;
+	text-align: center;
+}
+
+#content {
+	clear: left;
+	margin: 0px;
+	border: 0px;
+	padding: 0px;
+	width: 900px;	
+}
+
+#contentLeft {
+	background: #ffffff;
+	float: left;
+	clear: left;
+	margin: 0px;
+	border: 0px;
+	padding-left: 10px;	
+	padding-right: 10px;	
+	width: 570px;
+	height: 500px;
+}
+
+#contentCenter {
+	background: #ffffff;
+	float: left;
+	clear: left;
+	margin: 0px;
+	border: 0px;
+	padding-top: 15px;
+	padding-left: 10px;	
+	padding-right: 10px;	
+	width: 880px;
+	height: 500px;
+}
+
+#contentRight {
+	background: #ffffff;
+	float: left;
+	margin: 0px;
+	border: 0px;
+	padding-right: 10px;
+	width: 300px;
+	height: 500px;
+}
+
+#tabs li .ui-icon-carat-1-e {
+	float: left; margin: 8px 5px 0 0; cursor: pointer;
+}
+
+#pageTitle {
+	float: left;
+	clear: left;
+	margin-top: 15px;
+	margin-bottom: 0px;
+	margin-left: 10px;
+	margin-right: 10px;
+	border: 0px;
+	padding: 0px;	
+	width: 880px;
+}
+
+#breadcrumb { 
+	font-size: 80%;
+	font-weight: normal;
+	margin: 0px;
+}
+
+#pageHeader {
+	font-size: 160%;
+	margin: 0px;	
+}
+
+#submitButton {
+	background: orange
+}
+
+.formButtons {
+	margin-top: 10px;
+}
+
+#splashImage {
+
+}
+
+#affiliatesBannerAd {
+	background: #dcdcdc;
+	float: left;
+	clear: left;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	border: 0px;
+	padding: 0px;	
+	width: 300px;
+	height: 55px;
+	text-align: center;
+}
+
+#footer {
+	clear: left;
+	margin: 0px;
+	border: 0px;
+	padding: 0px;
+	width: 900px;		
+}
+
+#footerLeft {
+	float: left;
+	clear: left;
+	margin: 0px;
+	border: 0px;
+	padding-top: 10px;
+	padding-left: 10px;	
+	width: 200px;
+	height: 30px;
+}
+
+#footerCenter {
+	float: left;
+	margin: 0px;
+	border: 0px;
+	padding-top: 10px;
+	width: 500px;
+	height: 30px;
+	text-align: center;
+}
+
+#footerRight {
+	float: left;
+	margin: 0px;
+	border: 0px;
+	padding-top: 10px;
+	width: 190px;
+	height: 30px;		
+}
+
+#footerFacebook {
+	padding-left: 72px;
+}
+
+#copyright {
+	font-size: 80%;
+}
+
+/* BEGIN NEWS-RELATED CSS */
+
+#newsContainer {
+	float: left;
+	clear: left;
+	margin: 0px;
+	border: 0px;
+	padding: 0px;	
+	width: 300px;
+	height: 330px;
+}
+
+#newsHeader {
+	font-size: 120%;
+}
+
+.newsArticle {
+}
+
+.newsTitle {
+
+}
+
+a.newsLink:link {
+	color: #444;
+	text-decoration: none;
+	font-size: 80%;
+}
+
+a.newsLink:hover {
+	color: #000;
+	text-decoration: underline;
+	font-size: 80%;
+}
+
+.newsDate { 
+	font-style: italic;
+	font-size: 80%;
+}
+
+.newsContent { 
+	font-size: 80%;
+}
+
+/* END NEWS-RELATED CSS */

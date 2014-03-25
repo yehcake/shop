@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>FIFO | Yeh! Cake Mobile</title>
+        <meta charset="utf-8" />
+		<meta name="robots" content="noindex, nofollow, noodp, noimageindex" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="canonical" href="http://m.yehcake.com/register/" />
+        <link rel="stylesheet" href="/library/css/yehcake-flavors.min.css" />
+        <link rel="stylesheet" href="/library/css/jquery.mobile.structure-1.3.0.min.css" /> 
+        <link rel="stylesheet" href="http://www.yehcake.com/library/css/yehcake-common.css" />
+        <link rel="stylesheet" href="/library/css/yehcake-mobile.css" />
+        <script src="/library/js/jquery-1.8.3.js"></script>
+        <script src="/library/js/jquery.mobile-1.3.0.js"></script>
+        <script src="http://www.yehcake.com/library/js/yehcake-common.js"></script>
+        <script src="/library/js/yehcake-mobile.js"></script>
+        <script src="/library/js/yehcake-pos.js"></script>
+        <script>
+            var _gaq = _gaq || [];
+            _gaq.push(['_setAccount', 'UA-35314774-1']);
+            _gaq.push(['_setDomainName', 'yehcake.com']);
+            _gaq.push(['_setAllowLinker', true]);
+            _gaq.push(['_trackPageview']);
+
+            (function () {
+                var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+                ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+                var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+            })();
+
+            $(document).ready(function () {
+            });
+
+            $(document).on("pagebeforeshow", "#fifo", function () {
+
+            });
+
+            $(document).on("pageinit", "#fifo", function () {
+
+                $("#next-order-button").click(function () {
+                    $.get(getAppUrl(), "action=3", function (response) {
+                        if (response != null) {
+                            $("#order-count-header").html("Order #" + response.count);
+                            //alert(JSON.stringify(response.details.items));
+                            setQuantities2(response.details.items);
+                            $("#total-items").html(getNumItems(response.details.items) + " items total");
+                        } else {
+                            $("#order-count-header").html("No Orders Pending");
+                            for (var i = 0; i < getNumSkus(); i++) {
+                                $("#sku0" + i).html(0);
+                            }
+                            $("#total-items").html("0 items total");
+                        }
+                    }, "jsonp");
+                });
+
+            });
+		</script>
+        <style>
+            .center {
+                margin-left: auto;
+                margin-right:  auto;
+                width: 280px;
+            }
+        </style>
+    </head>
+    <body>
+        <!-- +++++++++++++++ BEGIN FIFO +++++++++++++++ -->
+        <div data-role="page" id="fifo">
+            <!-- +++++++++++++++ BEGIN HEADER +++++++++++++++ -->
+            <div id="header" data-theme="a" data-role="header" data-position="fixed">
+                <h3 id="order-count-header">No Orders Pending</h3>
+            </div> <!-- +++++++++++++++ END HEADER +++++++++++++++ -->
+            <!-- +++++++++++++++ BEGIN CONTENT +++++++++++++++ -->
+            <div data-role="content">
+                <div class="center">
+                    <ul>
+	<li style="padding-bottom: 15px;"><b>Cupcakes</b><ul>
+		<li><span id="sku03">0</span> Carrot</li>
+		<li><span id="sku04">0</span> Red Velvet</li>
+		<li><span id="sku05">0</span> Vanilla</li>
+	</ul>
+	</li>
+	<li style="padding-bottom: 15px;"><b>Cake Pops</b><ul>
+		<li><span id="sku01">0</span> Chocolate</li>
+		<li><span id="sku02">0</span> Vanilla</li>
+	</ul>
+	</li>
+	<li><b>Mini-Bundt Cakes</b><ul>
+		<li><span id="sku00">0</span> Chocolate</li>
+	</ul>
+	</li>
+</ul>
+<!--
+                    <table data-role="table" id="cupcake-table" data-mode="reflow">
+                        <thead>
+                            <tr>
+                                <th id="sku03">0</th>
+                                <th id="sku04">0</th>
+                                <th id="sku05">0</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Carrot Cake Cupcake</td>
+                                <td>Red Velvet Cupcake</td>
+                                <td>Vanilla Cupcake</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <hr>
+                    <table data-role="table" id="cakepop-table" data-mode="reflow">
+                        <thead>
+                            <tr>
+                                <th id="sku01">0</th>
+                                <th id="sku02">0</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Chocolate Cake Pop</td>
+                                <td>Vanilla Cake Pop</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <hr>
+                    <table data-role="table" id="bundt-table" data-mode="reflow">
+                        <thead>
+                            <tr>
+                                <th>0</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Chocolate Mini-Bundt</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    -->
+                </div>
+            </div> <!-- +++++++++++++++ END CONTENT +++++++++++++++ -->
+            <!-- +++++++++++++++ BEGIN FOOTER +++++++++++++++ -->
+            <div data-theme="a" data-role="footer" data-position="fixed">
+                <h3 id="total-items">0 total</h3>
+                <input type="button" id="next-order-button" class="ui-btn-right" data-icon="forward" data-iconpos="right" value="Next" />
+            </div> <!-- +++++++++++++++ END FOOTER +++++++++++++++ -->
+        </div> <!-- +++++++++++++++ END ORDER +++++++++++++++ -->
+    </body>
+</html>

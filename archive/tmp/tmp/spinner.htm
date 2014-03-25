@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+		<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.9.1/jquery-ui.min.js"></script>
+		<script src="/yehcake.js"></script>
+		<link rel="stylesheet" type="text/css" href="/yehcake.css" />			
+        <title>Spinner Test</title>
+		<script>
+			$(document).ready(function(){
+     		
+	     		var spinner = $( ".spinner" ).spinner({ min: 1, max: 144 });
+
+			}); 
+		</script>        
+    </head>
+    <body>
+
+<table border="0" cellpadding="10">
+  <thead>
+    <tr>  
+      <th>Product</th>
+      <th>Quantity</th>
+      <th>Unit Price</th>
+      <th>Extended Price</th>
+    </tr>
+  </thead>
+  <tfoot>
+  	<tr>
+      <td colspan="3" style="text-align: right">Shipping</td>
+      <td>NT$200</td>  		
+  	</tr>
+    <tr>
+      <td colspan="3" style="text-align: right">Sub-Total</td>
+      <td>NT$2000</td>
+    </tr>
+  </tfoot>
+  <tbody>
+    <tr>
+		<td>Chocolate Cake</td>
+		<td><input class="spinner" name="value" style="width:30px" /><span class="ui-icon ui-icon-trash" style="float: right; margin-top:3px; margin-left:5px; cursor: pointer">Remove Item</span></td>
+      	<td>$NT1,000</td>
+      	<td>$NT2,000</td>
+    </tr>
+		<td>Vanilla Cake</td>
+		<td><select><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option><option>10</option><option>11</option><option>12</option></select><span class="ui-icon ui-icon-trash" style="float: right; margin-top:3px; margin-left:5px; cursor: pointer">Remove Item</span></td>
+      	<td>$NT1,000</td>
+      	<td>$NT2,000</td>
+    </tr>    
+  </tbody>
+</table>
+ 
+    </body>
+</html>

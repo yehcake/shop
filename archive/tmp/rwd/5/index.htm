@@ -1,0 +1,85 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noarchive, noodp, noimageindex" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>RWD Test</title>
+<link rel="stylesheet" href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css" />
+<link rel="stylesheet" href="//code.jquery.com/mobile/1.4.0/jquery.mobile-1.4.0.min.css" />
+<link rel="stylesheet" href="form.css" />
+<script src="//code.jquery.com/jquery-1.10.2.min.js"></script>
+<script src="//code.jquery.com/mobile/1.4.0/jquery.mobile-1.4.0.min.js"></script>
+<script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+<script src="form.js"></script>
+<script src="data.js"></script>
+<script>
+    $(document).on("pagebeforecreate", "#orderPage", function (event) {
+        $(".form-field").each(function (index) {
+            $(this).replaceWith(getFormField($(this).text()));
+        });
+    });
+    $(document).on("pagecreate", "#orderPage", function (event) {
+        initSelect("time", getTimes(9, 18, 30));
+        initSelect("quantity", getQuantities(1, 144, 1));
+        initSelect("flavor", getFlavors());
+        initSelect("date", getDates(100, 1));
+        initSelect("budget", getQuantities(3000, 30000, 1000));
+        initAutocomplete("postalCode", getPostalCodes());
+    });
+</script>
+</head>
+<body>
+<div id="orderPage" data-role="page">
+  <div role="main" class="ui-content">
+    <div class="yc-content-wrapper">
+      <div class="ui-grid-a yc-form-container">
+        <div class="ui-block-a">
+          <div class="yc-image-wrapper"> <img src="placeholder.jpg" alt="Placeholder"> </div>
+        </div>
+        <div class="ui-block-b">
+          <div class="ui-grid-a yc-form">
+            <div class="ui-block-a">
+              <div class="form-field">flavor</div>
+            </div>
+            <div class="ui-block-b">
+              <div class="form-field">quantity</div>
+            </div>
+            <div class="ui-block-a">
+              <div class="form-field">date</div>
+            </div>
+            <div class="ui-block-b">
+              <div class="form-field">time</div>
+            </div>
+            <div class="ui-block-a">
+              <div class="form-field">deliveryAddress</div>
+            </div>
+            <div class="ui-block-b">
+              <div class="form-field">budget</div>
+            </div>
+            <div class="ui-block-a">
+              <div class="form-field">inscription</div>
+            </div>
+            <div class="ui-block-b">
+              <div class="form-field">occasion</div>
+            </div>
+            <!--div class="ui-block-a">
+          <div class="form-field">photo</div>
+        </div>
+        <div class="ui-block-b">
+          <div class="form-field">comment</div>
+        </div--> 
+          </div>
+          <!-- grid --> 
+        </div>
+        <!-- block --> 
+      </div>
+      <!-- container --> 
+    </div>
+    <!-- wrapper --> 
+  </div>
+  <!-- content --> 
+</div>
+<!-- page -->
+</body>
+</html>

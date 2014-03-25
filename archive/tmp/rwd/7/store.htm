@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+    <meta charset="utf-8">
+    <meta name="robots" content="noarchive, noodp, noimageindex" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>門市資訊 Store Information</title>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css" />
+    <link rel="stylesheet" href="//code.jquery.com/mobile/1.4.0/jquery.mobile-1.4.0.min.css" />
+    <link rel="stylesheet" href="form.css" />
+    <script src="//code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="//code.jquery.com/mobile/1.4.0/jquery.mobile-1.4.0.min.js"></script>
+    <script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+    <script src="form.js"></script>
+    <script src="data.js"></script>
+    </head>
+    <body>
+    <div id="storePage" data-role="page" data-add-back-btn="true">
+      <div data-role="header" data-position="fixed" data-fullscreen="false"> <a href="/" data-rel="back" data-role="button" data-icon="carat-l" data-iconpos="notext">Back</a>
+        <h1>門市資訊 Store</h1>
+        <a href="#" data-role="button" data-icon="action" data-iconpos="notext">Share</a> </div>
+      <div role="main" class="ui-content">
+        <div class="yc-content-wrapper">
+          <div class="ui-grid-a yc-form-container">
+            <div class="ui-block-a">
+              <div class="yc-map-wrapper">
+                <iframe width="300" height="300" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?saddr=25.118559,121.526826+(Yeh!+Cake)&amp;ie=UTF8&amp;t=m&amp;ll=25.118554,121.526835&amp;spn=0.005829,0.006437&amp;z=16&amp;output=embed"></iframe>
+              </div>
+            </div>
+            <div class="ui-block-b">
+              <table data-role="table" data-mode="reflow">
+                <thead>
+                  <tr>
+                    <th>營業時間</th>
+                    <th>地址</th>
+                    <th>電話 Phone</th>
+                    <th>Email</th>
+                    <th>LINE ID</th>
+                    <th>Hours</th>
+                    <th>Address</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>週二～六 11:00～17:00</td>
+                    <td><a href="https://maps.google.com/maps?daddr=25.118559,121.526826+%28Yeh!+Cake%29" target="_blank">台北市天母西路55號B1</a></td>
+                    <td><a href="sms:+886922132253">+886-922-132-253</a></td>
+                    <td><a href="mailto:info@yehcake.com">info@yehcake.com</a></td>
+                    <td>yehcake</td>
+                    <td>Tu to Sa 11:00–17:00</td>
+                    <td><a href="https://maps.google.com/maps?daddr=25.118559,121.526826+%28Yeh!+Cake%29" target="_blank">B1F, No. 55, Tianmu West Rd, Taipei</a></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</body>
+</html>

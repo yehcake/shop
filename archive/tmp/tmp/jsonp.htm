@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+		<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.9.1/jquery-ui.min.js"></script>
+        <title>JSONP Test</title>
+		<script>
+			function getRandomIndex(max) {
+				var power = String(max.length).length;
+				var rand = Number.MAX_VALUE;
+				var i;
+				
+				while (rand >= max) {
+					rand = Math.floor(Math.random()*Math.pow(10, power));
+				}
+				
+				return rand;
+			}
+			
+			$(document).ready(function(){
+     		
+	     		var url = "https://script.google.com/a/macros/yehcake.com/s/AKfycbxyO7PGOcWN48YJzpgJjiM6KLwoldY_BtoLjLaqm1t-OLkXNj4/exec";
+     		
+    	 		$.get(url, { q: "products" }, function(data){
+//					alert(getRandomIndex(data.length));
+					for (var i=0; i<data.length; i++) {
+						var img = $( "<div>" + data[i].id + " | " + data[i].type + " | " + data[i].flavor + " | " + data[i].size + " | " + data[i].price + "</div>" ).appendTo( "#content" );
+					}
+				}, "jsonp"); 
+
+			}); 
+		</script>        
+    </head>
+    <body>
+		<div id="content"></div>
+    </body>
+</html>

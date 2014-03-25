@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Yeh Cake!</title>
+        <meta charset="utf-8" />
+		<meta name="robots" content="noindex, nofollow, noodp, noimageindex" />
+        <link rel="stylesheet" href="/library/css/jquery-ui-1.10.1.css" />
+        <link rel="stylesheet" href="/library/css/yehcake-common.css" />
+        <link rel="stylesheet" href="/library/css/yehcake-desktop.css" />
+        <script src="/library/js/jquery-1.9.1.js"></script>
+        <script src="/library/js/jquery-ui-1.10.1.js"></script>
+        <script src="/library/js/yehcake-common.js"></script>
+        <script src="/library/js/yehcake-desktop.js"></script>
+        <script>
+            var _gaq = _gaq || [];
+            _gaq.push(['_setAccount', 'UA-35314774-1']);
+            _gaq.push(['_setDomainName', 'yehcake.com']);
+            _gaq.push(['_setAllowLinker', true]);
+            _gaq.push(['_trackPageview']);
+
+            (function () {
+                var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+                ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+                var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+            })();
+
+            (function (d, buildThese) {
+                var homeScript, newScript, n = buildThese.length, i;
+                for (i = 0; i < n; i = i + 1) {
+                    newScript = d.createElement('SCRIPT');
+                    newScript.type = 'text/javascript';
+                    newScript.async = true;
+                    newScript.src = buildThese[i];
+                    homeScript = d.getElementsByTagName('SCRIPT')[0];
+                    homeScript.parentNode.insertBefore(newScript, homeScript);
+                }
+            } (document, [
+              '//assets.pinterest.com/js/pinit.js'
+            /* load more third-party JavaScript here */
+            ])
+            );
+
+            $(document).ready(function () {
+            });
+		</script>
+        <style>
+            .container-column1 {
+                float: left;
+            }
+            .container-column2 {
+                float: right;
+            }
+            .testimonial-text {
+                background-image: url("http://assets.yehcake.com/image/yehcake_note_320x95.png");
+                height: 95px;
+                margin-top: 13px;
+                text-align: center;
+                width: 320px;
+            }
+            .testimonial-quotation {
+                font-size: small;
+                font-style: italic;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="fb-root"></div>
+        <script>(function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+        fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));</script>
+        <div class="container-page">
+        <!-- +++++++++++++++ BEGIN COLUMN 1 +++++++++++++++ -->
+        <div class="container-column1">
+            <div class="video">
+                <iframe width="560" height="315" src="http://www.youtube.com/embed/ymajcej0mQk?rel=0" frameborder="0" allowfullscreen></iframe>
+            </div>
+            <div class="photos">
+                <a data-pin-do="embedBoard" href="http://pinterest.com/yehcake/official-photo-gallery/" data-pin-scale-width="87" data-pin-scale-height="80" data-pin-board-width="550" target="_blank"></a>
+            </div>
+        </div>
+        <!-- +++++++++++++++ BEGIN COLUMN 2 +++++++++++++++ -->
+        <div class="container-column2">
+            <div class="news">
+                <div class="fb-like-box" data-href="http://www.facebook.com/yehcake/" data-width="320" data-height="380" data-show-faces="false" data-stream="true" data-header="false"></div>
+            </div>
+            <div class="testimonial">
+                <div class="testimonial-text">
+                    <br />
+                    <p class="testimonial-quotation" lang="en-us">"It was truly the best cake I have ever eaten, anywhere in the world!!!" ~Rebecca B. (3/13)</p>
+                </div>
+            </div>
+        </div>
+        </div>
+        <!--script type="text/javascript" src="//assets.pinterest.com/js/pinit.js"></script-->    
+    </body>
+</html>

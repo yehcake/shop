@@ -1,0 +1,172 @@
+/* Smallest Screen Size */
+.yc-rwd-2 .ui-block-a,
+.yc-rwd-2 .ui-block-b,
+.yc-rwd-3 .ui-block-a,
+.yc-rwd-3 .ui-block-b,
+.yc-rwd-3 .ui-block-c,
+.yc-rwd-5 .ui-block-a,
+.yc-rwd-5 .ui-block-b,
+.yc-rwd-5 .ui-block-c,
+.yc-rwd-5 .ui-block-d,
+.yc-rwd-5 .ui-block-e
+{
+    width: 100%;
+    float: none;
+}
+.yc-rwd-3 .ui-block-b
+{
+    margin-top: 1em;
+}
+.yc-rwd-3 .ui-block-c
+{
+    margin-top: 2em;
+}
+
+/* iPhone in portrait */
+@media all and (min-width: 20em) {
+    .yc-rwd-5
+    {
+        overflow: hidden; /* Use this or a "clearfix" to give the container height */
+    }
+    .yc-rwd-5 .ui-block-a,
+    .yc-rwd-5 .ui-block-b,
+    .yc-rwd-5 .ui-block-c
+    {
+      width: 33.25%;
+      float: left;      
+    }
+    .yc-rwd-5 .ui-block-d,
+    .yc-rwd-5 .ui-block-e
+    {
+      width: 49.95%;
+      float: left;      
+    }
+    .yc-rwd-5 .ui-block-b,
+    .yc-rwd-5 .ui-block-e
+    {
+      clear: right;
+    }
+}
+
+/* iPhone 5s in landscape */
+@media all and (min-width: 35.5em) {
+    .yc-rwd-2,
+    .yc-rwd-3,
+    .yc-rwd-5
+    {
+        overflow: hidden; /* Use this or a "clearfix" to give the container height */
+    }
+    .yc-rwd-2 .ui-block-a,
+    .yc-rwd-3 .ui-block-a
+    {
+        width: 55%;
+        float: left;
+    }
+    .yc-rwd-2 .ui-block-b,
+    .yc-rwd-3 .ui-block-b
+    {
+        width: 44.5%;
+        float: left;
+    }
+    .yc-rwd-3 .ui-block-b
+    {
+        margin-top: 0px;
+    }
+    .yc-rwd-3 .ui-block-c
+    {
+        width: 100%;
+        float: none;
+    }
+    .yc-rwd-5 .ui-block-a,
+    .yc-rwd-5 .ui-block-b,
+    .yc-rwd-5 .ui-block-c,
+    .yc-rwd-5 .ui-block-d,
+    .yc-rwd-5 .ui-block-e
+    {
+      width: 19.95%;
+      float: left;      
+    }
+    .yc-rwd-2 .ui-block-b,
+    .yc-rwd-3 .ui-block-b,
+    .yc-rwd-5 .ui-block-e
+    {
+      clear: right;
+    }
+}
+
+/* iPhone 5s in landscape */
+@media all and (min-width: 35.5em) {
+    .yc-rwd-2,
+    .yc-rwd-3,
+    .yc-rwd-5
+    {
+        overflow: hidden; /* Use this or a "clearfix" to give the container height */
+    }
+    .yc-rwd-2 .ui-block-a,
+    .yc-rwd-3 .ui-block-a
+    {
+        width: 55%;
+        float: left;
+    }
+    .yc-rwd-2 .ui-block-b,
+    .yc-rwd-3 .ui-block-b
+    {
+        width: 44.5%;
+        float: left;
+    }
+    .yc-rwd-3 .ui-block-b
+    {
+        margin-top: 0px;
+    }
+    .yc-rwd-3 .ui-block-c
+    {
+        width: 100%;
+        float: none;
+    }
+    .yc-rwd-5 .ui-block-a,
+    .yc-rwd-5 .ui-block-b,
+    .yc-rwd-5 .ui-block-c,
+    .yc-rwd-5 .ui-block-d,
+    .yc-rwd-5 .ui-block-e
+    {
+      width: 19.95%;
+      float: left;      
+    }
+    .yc-rwd-2 .ui-block-b,
+    .yc-rwd-3 .ui-block-b,
+    .yc-rwd-5 .ui-block-e
+    {
+      clear: right;
+    }
+}
+
+/* iPad portrait */
+@media all and (min-width: 48em) {
+    .yc-rwd-3
+    {
+    width: 48em;
+    margin-left: auto;
+    margin-right: auto;
+        overflow: hidden; /* Use this or a "clearfix" to give the container height */
+    }
+    .yc-rwd-3 .ui-block-a
+    {
+        width: 40%;
+        float: left;
+    }
+    .yc-rwd-3 .ui-block-b,
+    .yc-rwd-3 .ui-block-c
+    {
+        width: 29.5%;
+        float: left;
+    }
+    .yc-rwd-3 .ui-block-b,
+    .yc-rwd-3 .ui-block-c
+    {
+        margin-top: 0px;
+    }
+    .yc-rwd-3 .ui-block-c
+    {
+      clear: right;
+    }
+}

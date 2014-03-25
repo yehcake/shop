@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+    	<meta name="google-translate-customization" content="6b9a1fafb7f801fe-93cf06c858da6727-gd18f985777b4d66d-f">
+		<meta name="robots" content="none" />        
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+		<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.9.1/jquery-ui.min.js"></script>
+		<script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+		<script src="http://www.google.com/recaptcha/api/js/recaptcha_ajax.js"></script>
+		<script src="/yehcake.js"></script>	
+		<script src="/initCaptcha.js"></script>				
+		<link rel="stylesheet" type="text/css" href="/yehcake.css" />	
+		<!--
+		<meta name="robots" content="noarchive, noodp, noimageindex" />    
+		<link rel="shortcut icon" href="http://assets.yehcake.com/image/yehcake.ico" />
+		<link rel="apple-touch-icon" href="touch-icon-iphone.png" />
+		<link rel="apple-touch-icon" sizes="72x72" href="touch-icon-ipad.png" />
+		<link rel="apple-touch-icon" sizes="114x114" href="touch-icon-iphone4.png" />
+		-->
+		
+		<meta name="description" content="Free Web tutorials">
+		<meta name="keywords" content="HTML,CSS,XML,JavaScript">
+		<link rel="canonical" href="http://yehcake.azurewebsites.net/checkout.htm" />
+        <title>Checkout | Yeh! Cake</title>
+
+		<script>
+			$(document).ready(function(){
+				$( "#headerPlaceholder" ).load("template.htm #header", function() {
+					$( "#header" ).unwrap();
+					$.getScript("initHeader.js", function() {	
+					});
+				});
+				$( "#footerPlaceholder" ).load("template.htm #footer", function() {
+					$( "#footer" ).unwrap();
+					$.getScript("initFooter.js", function() {
+					});					
+				});
+				$( "#tabs" ).tabs({ heightStyle: "fill" }).tabs("option", "disabled", [ 1, 2 ]);
+				$( ".previousButton").button({
+            		icons: {
+                		primary: "ui-icon-carat-1-w"
+            		},
+        		});
+				$( ".nextButton").button({
+            		icons: {
+                		secondary: "ui-icon-carat-1-e"
+            		},
+        		});
+        		$( "#submitButton").button({
+            		icons: {
+                		secondary: "ui-icon-arrowreturnthick-1-e"
+            		},
+        		});
+        		var errors = [];
+        		$( "#tab0to1" ).click(function() {
+        			//var errors = getShoppingCartErrors();
+        			if (errors.length == 0) {
+        				$( "#tabs" ).tabs( "enable", 1 ).tabs("option", "active", 1).tabs( "disable", 0 );
+        			} else {
+        				displayErrors(errors);
+        			}
+        		}); 
+        		$( "#tab1to2" ).click(function() {
+        			//var errors = getDeliveryInfoErrors();
+        			if (errors.length == 0) {
+        				$( "#tabs" ).tabs( "enable", 2 ).tabs("option", "active", 2).tabs( "disable", 1 );        			
+        				showRecaptcha("recaptcha");
+        			} else {
+        				displayErrors(errors);
+        			}
+        		});
+        		$( "#tab2to1" ).click(function() {
+        			Recaptcha.destroy();
+        			$( "#tabs" ).tabs( "enable", 1 ).tabs("option", "active", 1).tabs( "disable", 2 );
+        		});
+        		$( "#tab1to0" ).click(function() {
+        			//var errors = getDeliveryInfoErrors();
+        			if (errors.length == 0) {
+        				$( "#tabs" ).tabs( "enable", 0 ).tabs("option", "active", 0).tabs( "disable", 1 );
+        			} else {
+        				displayErrors(errors);
+        			}
+        		});
+				$( "form" ).submit(function() {
+					$( "#remoteAddr" ).val(getCookie("remoteAddr"));
+					var shoppingCartService = "https://script.google.com/a/macros/yehcake.com/s/AKfycbzjWxyrfvMU5Qp4FiisgPuUVbOv0gk8hpsfYLbZseweANAJxVA/exec";
+					$.get(shoppingCartService, $("form").serialize(), function(data){
+						if (data == 0) {
+							Recaptcha.destroy();
+						} else {
+							Recaptcha.reload();
+						}
+					}, "jsonp");
+					return false; 
+				});
+				
+				$( "#tabs-1-content" ).text(getCart());        		        		          		         		        		
+			}); 
+		</script>
+    </head>
+    <body><div id="wrapper">		    
+    	<div id="headerPlaceholder"></div>
+    	<div id="content">
+    		<div id="pageTitle">
+    			<h2 id="breadcrumb">Shop &gt;</h2>
+    			<h1 id="pageHeader">Checkout</h1>
+    		</div>
+    	<div id="contentCenter">
+    		<form>
+				<div id="tabs">
+    				<ul>
+        				<li><a href="#tabs-1">Shopping Cart</a></li>
+     		   			<li><a href="#tabs-2">Delivery Information</a></li>
+  	 		     		<li><a href="#tabs-3">Order Confirmation</a></li>
+    				</ul>
+    				<div id="tabs-1">
+    		   	 		<div id="tabs-1-content"></div>
+    		   	 		<div class="formButtons">
+    		   	 			<button id="tab0to1" class="nextButton">Next</button>
+    		   	 		</div>
+    				</div>
+    				<div id="tabs-2">
+        				<p>Morbi tincidunt, dui sit amet facilisis feugiat, odio metus gravida ante, ut pharetra massa metus id nunc. Duis scelerisque molestie turpis. Sed fringilla, massa eget luctus malesuada, metus eros molestie lectus, ut tempus eros massa ut dolor. Aenean aliquet fringilla sem. Suspendisse sed ligula in ligula suscipit aliquam. Praesent in eros vestibulum mi adipiscing adipiscing. Morbi facilisis. Curabitur ornare consequat nunc. Aenean vel metus. Ut posuere viverra nulla. Aliquam erat volutpat. Pellentesque convallis. Maecenas feugiat, tellus pellentesque pretium posuere, felis lorem euismod felis, eu ornare leo nisi vel felis. Mauris consectetur tortor et purus.</p>
+    					<div class="formButtons">
+    						<button id="tab1to0" class="previousButton">Previous</button>
+    						<button id="tab1to2" class="nextButton">Next</button>
+    					</div>
+    				</div>
+    				<div id="tabs-3">
+        				<div id="recaptcha"></div>
+						<input type="hidden" id="remoteAddr" name="remoteAddr" value="">
+						<div class="formButtons">
+							<button id="tab2to1" class="previousButton">Previous</button>
+							<input type="submit" id="submitButton" value="Submit Order" />
+						</div>
+		    		</div>
+				</div>
+			</form>
+		</div></div>
+    	<div id="footerPlaceholder"></div>    
+    </div></body>
+</html>

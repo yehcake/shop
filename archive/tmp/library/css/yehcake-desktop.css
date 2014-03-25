@@ -1,0 +1,179 @@
+body {
+    margin: 0px;
+    padding: 0px;                
+}
+#content {
+    padding-top: 5px; 
+    height: 500px;   
+    border-style: none;
+    width: 900px;
+}
+.banner {
+	height: 55px;
+	margin-top: 10px;
+	width: 900px;
+}
+.clickable {
+    cursor: pointer;
+}
+.contact-links {
+    float: left;
+}
+.contact-map {
+    float: left;
+}
+.container-end {
+	clear: both;
+}
+.container-page {
+	width: 900px;
+	margin-left: auto;
+	margin-right: auto;
+    padding-top: 10px;
+}
+.container-page-height {
+    height: 480px;
+}
+.footer-text {
+    color: gray;
+    font-size: x-small;
+    padding-top: 10px;
+    text-align: center;        
+}
+.header-link:link, .header-link:visited {
+	color: black;
+	font-size: x-small;
+	text-decoration: none;
+}
+.header-link:hover {
+	color: #ff0099;	
+}
+.header-links {
+	float: left;
+	height: 15px;
+	text-align: right;
+	width: 736px;
+}
+.logo {
+	float: left;
+	padding-right: 60px;
+}
+.messaging-apps-logos {
+    padding-left: 100px;
+    padding-top: 90px;
+}
+.messaging-apps-text {
+    font-size: x-small;
+    text-align: right;
+}
+.navbar {
+	float: left;
+	list-style-type: none;
+	margin: 0px;
+	padding-top: 12px;
+}
+.navbar>li {
+	float: left;
+}
+.navbar-button {
+	color: gray;
+	text-align: center;
+	width: 100px;
+}
+.navbar-button:hover {
+	color: black;
+	background-color: #ff0099;
+}
+.navbar-button>[lang=en-us] {
+	font-size: small;
+}
+.navbar-button>[lang=zh-tw] {
+	font-size: medium;
+}
+.newsletter {
+    width: 720px;
+}
+.order-form {
+    width: 900px;
+}
+.pinterest-board {
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 10px;
+    padding-left: 0px;
+    padding-right: 0px;
+    width: 488px;
+}
+.text-link:link {
+	color: blue;
+	text-decoration: none;
+}
+.text-link:visited {
+    color: blue;
+	text-decoration: none;
+}
+.text-link:hover {
+	color: #ff0099;	
+}
+.text-regular {
+    font-size: small;
+}
+.title-level-2 {
+    font-size: medium;
+    margin-top: 0px;
+}
+.title-level-3 {
+    font-size: small;
+    margin-top: 0px;
+}
+.ui-center {
+    margin-left: auto;
+    margin-right: auto;
+}
+.container-product {
+	float: left;
+	width: 430px;
+}
+.container-products {
+    margin: 0px;
+    padding-top: 20px;
+	width: 880px;
+}
+.container-products-row {
+	height: 250px;
+}
+.product-description {
+	font-size: small;
+    padding-top: 5px;
+}
+.product-inquire {
+    font-size: x-small;
+    padding-top: 5px;
+    text-align: right;        
+}
+.product-intro {
+    background: #ffffcc;
+    font-size: small;
+    padding: 10px;
+}
+.product-price {
+    color: blue;
+	font-size: small;
+}
+.product-specs {
+	float: left;
+    width: 250px;
+}
+.product-tagline {
+	font-size: small;
+    font-weight: bold;
+}
+.product-title {
+    color:  #0e8f09;
+	font-size: medium;
+    font-weight: bold;
+}
+.product-visuals {
+	float: left;
+    width: 150px;
+}
