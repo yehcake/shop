@@ -8,10 +8,32 @@ function getCond(test, exp1, exp2)
     return result;
 }
 
+function getGeoLocation()
+{
+    var options = {};
+    options.enableHighAccuracy = true;
+    options.maximumAge = Infinity;
+    options.timeout = 0;
+
+    function success(position)
+    {
+        var latitude = position.coords.latitude;
+        var longitude = position.coords.longitude;
+        saveGeoLocation(latitude, longitude);
+    };
+
+    function error()
+    {};
+
+    if (navigator.geolocation)
+    {
+        navigator.geolocation.getCurrentPosition(success, error, options);
+    }
+}
+
 function getError(code)
 {
-    var result;
-    return getCond(isEmpty(code), null, result);
+    return null;
 }
 
 function getPref(key, config)
@@ -38,4 +60,8 @@ function isNumeric(val)
 function isOne(val)
 {
     return ((isNumeric(val)) && (val === 1));
+}
+
+function saveGeoLocation(latitude, longitude) {
+    
 }
